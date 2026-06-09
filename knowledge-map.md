@@ -41,6 +41,7 @@ mindmap
       知识管理
         LLM 时代碎片化知识管理
         个人知识图谱建设框架
+        个人知识图谱后续开发文档
       复盘系统
       心智模型
 ```
@@ -49,6 +50,7 @@ mindmap
 
 - [LLM 时代碎片化知识管理](10_Knowledge_Nodes/learning-thinking/2026-06-09_llm-era-fragmented-knowledge-management.md)
 - [个人知识图谱建设框架](20_Frameworks/learning-thinking/personal-knowledge-graph-framework.md)
+- [个人知识图谱后续开发文档](20_Frameworks/learning-thinking/personal-knowledge-graph-development-roadmap.md)
 
 ## 3. 待建设子树
 

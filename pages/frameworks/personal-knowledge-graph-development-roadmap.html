@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>个人知识图谱后续开发文档</title>
+  <style>
+    :root{--bg:#07111f;--card:#0d1b2f;--line:#223a5a;--text:#edf5ff;--muted:#9fb1c9;--blue:#4ea1ff;--cyan:#24d4ff;--violet:#a78bfa;--green:#33d69f;--amber:#f7c948}*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif;background:radial-gradient(circle at 10% 0,rgba(78,161,255,.25),transparent 30%),radial-gradient(circle at 90% 10%,rgba(167,139,250,.18),transparent 28%),var(--bg);color:var(--text);line-height:1.75}.wrap{max-width:1120px;margin:0 auto;padding:42px 22px 80px}.nav{display:flex;justify-content:space-between;gap:12px;margin-bottom:28px}.nav a{color:#cde7ff;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:9px 14px;background:rgba(13,27,47,.75)}.hero{border:1px solid var(--line);border-radius:28px;background:linear-gradient(135deg,rgba(13,27,47,.92),rgba(16,29,52,.8));padding:34px;box-shadow:0 30px 90px rgba(0,0,0,.28)}h1{font-size:40px;line-height:1.15;margin:0 0 12px}.lead{font-size:18px;color:var(--muted);max-width:860px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0}.metric{border:1px solid var(--line);border-radius:18px;background:#081426;padding:18px}.metric b{display:block;font-size:30px}.metric span{color:var(--muted);font-size:13px}.section{margin-top:24px;border:1px solid var(--line);border-radius:24px;background:rgba(13,27,47,.78);padding:26px}h2{margin:0 0 14px;font-size:25px}h3{margin:18px 0 8px;color:#dbeafe}.pill{display:inline-block;margin:4px 6px 4px 0;border:1px solid var(--line);border-radius:999px;padding:6px 10px;color:#dbeafe;background:#081426;font-size:13px}.cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}.card{border:1px solid var(--line);border-radius:18px;background:#081426;padding:18px}ul{margin:0;padding-left:20px;color:#c8d6ea}.muted{color:var(--muted)}.roadmap{display:grid;gap:12px}.phase{border-left:4px solid var(--cyan);background:#081426;border-radius:16px;padding:16px 18px}.phase b{color:#fff}.pass{color:var(--green);font-weight:700}.warn{color:var(--amber);font-weight:700}code{background:#06101e;border:1px solid var(--line);border-radius:7px;padding:2px 6px;color:#c4e1ff}@media(max-width:840px){.grid,.cols{grid-template-columns:1fr}h1{font-size:32px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav"><a href="../../index.html">← 返回知识图谱</a><a href="../../graph.json">查看 graph.json</a></div>
+    <section class="hero">
+      <span class="pill">framework</span><span class="pill">active</span><span class="pill">public</span>
+      <h1>个人知识图谱后续开发文档</h1>
+      <p class="lead">把本次从 Prompt、Skill、知识库、GitHub Pages 到 V2 交互图谱的全部对齐内容沉淀成后续开发说明，避免后续继续开发时丢失产品目标、架构约束和验证标准。</p>
+      <div class="grid">
+        <div class="metric"><b>V2</b><span>当前线上版本</span></div>
+        <div class="metric"><b>23</b><span>当前图谱节点</span></div>
+        <div class="metric"><b>24</b><span>当前关系连接</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>快速回顾</h2>
+      <p class="muted">目标不是保存一堆 Markdown，而是建设 GitHub Pages 托管的个人知识图谱网站。本地 <code>/Users/panzeng/Documents/Knowledges</code> 只做源文件、备份和发布中转。</p>
+      <div><span class="pill">Graph / Tree / Cards</span><span class="pill">搜索筛选</span><span class="pill">拖拽缩放</span><span class="pill">邻居高亮</span><span class="pill">HTML 节点页</span></div>
+    </section>
+
+    <section class="section">
+      <h2>已对齐 PRD</h2>
+      <div class="cols">
+        <div class="card"><h3>必须保持</h3><ul><li>首页强可视化、强交互，不退回链接列表。</li><li>总框架采用科学分类，节点进入父子树。</li><li>每个核心节点先快速回顾，再进入详情。</li><li>GitHub Pages 是主浏览面，本地只做备份。</li></ul></div>
+        <div class="card"><h3>仍需补齐</h3><ul><li>首页从 <code>graph.json</code> 动态读取数据。</li><li>Markdown 自动生成 HTML 详情页。</li><li>增加 schema 校验、无效链接检查、脱敏检查。</li><li>恢复 gstack / Playwright 浏览器验证链路。</li></ul></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>开发路线图</h2>
+      <div class="roadmap">
+        <div class="phase"><b>Phase 1：V2 稳定化</b><br><span class="muted">修复验证环境，统一 README / knowledge-map，检查核心链接。</span></div>
+        <div class="phase"><b>Phase 2：数据驱动化</b><br><span class="muted">首页改为读取 <code>graph.json</code>，增加 schema 校验和孤儿节点检查。</span></div>
+        <div class="phase"><b>Phase 3：详情页自动生成</b><br><span class="muted">从 Markdown frontmatter 和正文生成统一 HTML 节点页。</span></div>
+        <div class="phase"><b>Phase 4：交互增强</b><br><span class="muted">引入关系类型筛选、路径高亮、搜索定位动画和移动端优化。</span></div>
+        <div class="phase"><b>Phase 5：知识生产流水线</b><br><span class="muted">对接 personal-knowledge-graph-builder 与 kb，形成沉淀、校验、发布、复盘闭环。</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>下一步任务</h2>
+      <ul>
+        <li>把 V2 首页数据源改为 <code>fetch('graph.json')</code>。</li>
+        <li>增加 <code>scripts/validate_graph.py</code> 校验节点、边、URL、重复 id。</li>
+        <li>从 Markdown 自动生成 <code>pages/**/*.html</code>。</li>
+        <li>修复本机 gstack / Playwright 验证链路。</li>
+        <li>增加 <code>90_Reviews</code> 发布复盘文档。</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>质量门禁</h2>
+      <p><span class="pass">Pass</span> 快速回顾、知识框架图、全局树定位、可跳转路径、公开/私密区分、复盘周期、GitHub Pages readiness。</p>
+      <p><span class="warn">Watch</span> 当前仍存在首页数据硬编码、详情页手工维护、浏览器自动验证缺依赖的问题。</p>
+    </section>
+  </div>
+</body>
+</html>

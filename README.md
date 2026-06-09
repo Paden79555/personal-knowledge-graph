@@ -5,8 +5,10 @@
 ## 快速入口
 
 - [知识地图](knowledge-map.md)：查看总知识框架、分类树和节点关系
+- [交互式 GitHub Pages 首页](index.html)：查看 Graph / Tree / Cards 三视图知识图谱
 - [LLM 时代碎片化知识管理](10_Knowledge_Nodes/learning-thinking/2026-06-09_llm-era-fragmented-knowledge-management.md)：本次沉淀的核心知识节点
 - [个人知识图谱建设框架](20_Frameworks/learning-thinking/personal-knowledge-graph-framework.md)：持续演进的总框架方法
+- [个人知识图谱后续开发文档](20_Frameworks/learning-thinking/personal-knowledge-graph-development-roadmap.md)：后续开发 PRD、架构、路线图与验证规则
 
 ## 总体知识框架
 
@@ -34,6 +36,7 @@ mindmap
       知识管理
         LLM 时代碎片化知识管理
         个人知识图谱建设框架
+        个人知识图谱后续开发文档
       复盘系统
       心智模型
 ```
