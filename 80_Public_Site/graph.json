@@ -1,54 +1,16 @@
 {
   "nodes": [
-    {
-      "id": "personal-knowledge-graph",
-      "title": "Personal Knowledge Graph",
-      "type": "moc",
-      "domain": "root",
-      "path": "README.md",
-      "url": "/",
-      "visibility": "public",
-      "status": "evergreen",
-      "tags": ["knowledge-map", "moc"]
-    },
-    {
-      "id": "knowledge-management",
-      "title": "知识管理",
-      "type": "moc",
-      "domain": "learning-thinking",
-      "path": "knowledge-map.md",
-      "url": "/knowledge-map/",
-      "visibility": "public",
-      "status": "evergreen",
-      "tags": ["knowledge-management"]
-    },
-    {
-      "id": "personal-knowledge-graph-framework",
-      "title": "个人知识图谱建设框架",
-      "type": "framework",
-      "domain": "learning-thinking",
-      "path": "frameworks/personal-knowledge-graph-framework.md",
-      "url": "/frameworks/personal-knowledge-graph-framework/",
-      "visibility": "public",
-      "status": "evergreen",
-      "tags": ["knowledge-graph", "github-pages", "llm"]
-    },
-    {
-      "id": "llm-era-fragmented-knowledge-management",
-      "title": "LLM 时代碎片化知识管理",
-      "type": "framework",
-      "domain": "learning-thinking",
-      "path": "knowledge/learning-thinking/llm-era-fragmented-knowledge-management.md",
-      "url": "/knowledge/learning-thinking/llm-era-fragmented-knowledge-management/",
-      "visibility": "public",
-      "status": "refined",
-      "tags": ["llm", "knowledge-graph", "review", "github-pages"]
-    }
+    {"id":"personal-knowledge-graph","title":"Personal Knowledge Graph","type":"root","domain":"root","level":0,"status":"evergreen","url":"/personal-knowledge-graph/","summary":"个人知识图谱总入口：聚合主题、框架、知识节点和复盘机制。","tags":["root","moc"]},
+    {"id":"formal-sciences","title":"形式科学","type":"domain","domain":"formal-sciences","level":1,"status":"candidate","url":"#","summary":"数学、逻辑、统计、系统科学、计算理论。","tags":["taxonomy"]},
+    {"id":"natural-sciences","title":"自然科学","type":"domain","domain":"natural-sciences","level":1,"status":"candidate","url":"#","summary":"物理、化学、生命科学、地球科学、天文学。","tags":["taxonomy"]},
+    {"id":"engineering-technology","title":"工程与技术","type":"domain","domain":"engineering-technology","level":1,"status":"active","url":"#","summary":"软件工程、AI 工程、系统架构、测试、安全与自动化。","tags":["taxonomy","tech"]},
+    {"id":"social-sciences","title":"社会科学","type":"domain","domain":"social-sciences","level":1,"status":"candidate","url":"#","summary":"经济、金融、管理、组织、社会、心理与行为科学。","tags":["taxonomy"]},
+    {"id":"humanities","title":"人文与表达","type":"domain","domain":"humanities","level":1,"status":"candidate","url":"#","summary":"历史、哲学、语言、文学、艺术、写作与表达。","tags":["taxonomy"]},
+    {"id":"life-practice","title":"生活实践","type":"domain","domain":"life-practice","level":1,"status":"active","url":"#","summary":"健康、关系、职业、消费、家庭、个人运营。","tags":["taxonomy","life"]},
+    {"id":"learning-thinking","title":"学习与思考","type":"domain","domain":"learning-thinking","level":1,"status":"active","url":"#learning-thinking","summary":"知识管理、复盘系统、心智模型、学习路径与研究方法。","tags":["taxonomy","thinking"]},
+    {"id":"knowledge-management","title":"知识管理","type":"moc","domain":"learning-thinking","level":2,"status":"active","url":"#knowledge-management","summary":"个人知识系统、知识图谱、笔记压缩、MOC 与长期复盘。","tags":["knowledge-management","moc"]},
+    {"id":"personal-knowledge-graph-framework","title":"个人知识图谱建设框架","type":"framework","domain":"learning-thinking","level":3,"status":"evergreen","url":"pages/frameworks/personal-knowledge-graph-framework.html","summary":"用 GitHub Pages 承载可浏览总知识地图，用本地 Markdown 做备份与发布源。","tags":["knowledge-graph","github-pages","framework"]},
+    {"id":"llm-era-fragmented-knowledge-management","title":"LLM 时代碎片化知识管理","type":"knowledge-node","domain":"learning-thinking","level":4,"status":"refined","url":"pages/learning-thinking/llm-era-fragmented-knowledge-management.html","summary":"把高频 LLM 对话压缩成可复习、可跳转、可复盘、可发布的知识节点。","tags":["llm","knowledge-management","review"]}
   ],
-  "edges": [
-    {"source": "personal-knowledge-graph", "target": "knowledge-management", "relation": "parent"},
-    {"source": "knowledge-management", "target": "personal-knowledge-graph-framework", "relation": "parent"},
-    {"source": "personal-knowledge-graph-framework", "target": "llm-era-fragmented-knowledge-management", "relation": "parent"},
-    {"source": "llm-era-fragmented-knowledge-management", "target": "personal-knowledge-graph-framework", "relation": "related"}
-  ]
+  "edges": []
 }
