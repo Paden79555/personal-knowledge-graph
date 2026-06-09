@@ -1,0 +1,8 @@
+.DS_Store
+Thumbs.db
+*.tmp
+*.log
+_site/
+.jekyll-cache/
+.sass-cache/
+node_modules/

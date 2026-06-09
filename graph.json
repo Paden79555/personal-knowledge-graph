@@ -1,0 +1,70 @@
+{
+  "nodes": [
+    {
+      "id": "personal-knowledge-graph",
+      "title": "Personal Knowledge Graph",
+      "type": "moc",
+      "domain": "root",
+      "path": "README.md",
+      "url": "/",
+      "visibility": "public",
+      "status": "evergreen",
+      "tags": ["knowledge-map", "moc"]
+    },
+    {
+      "id": "knowledge-management",
+      "title": "知识管理",
+      "type": "moc",
+      "domain": "learning-thinking",
+      "path": "knowledge-map.md",
+      "url": "/knowledge-map/",
+      "visibility": "public",
+      "status": "evergreen",
+      "tags": ["knowledge-management"]
+    },
+    {
+      "id": "personal-knowledge-graph-framework",
+      "title": "个人知识图谱建设框架",
+      "type": "framework",
+      "domain": "learning-thinking",
+      "path": "20_Frameworks/learning-thinking/personal-knowledge-graph-framework.md",
+      "url": "/frameworks/personal-knowledge-graph-framework/",
+      "visibility": "public",
+      "status": "evergreen",
+      "tags": ["knowledge-graph", "github-pages", "llm"]
+    },
+    {
+      "id": "llm-era-fragmented-knowledge-management",
+      "title": "LLM 时代碎片化知识管理",
+      "type": "framework",
+      "domain": "learning-thinking",
+      "path": "10_Knowledge_Nodes/learning-thinking/2026-06-09_llm-era-fragmented-knowledge-management.md",
+      "url": "/knowledge/learning-thinking/llm-era-fragmented-knowledge-management/",
+      "visibility": "public",
+      "status": "refined",
+      "tags": ["llm", "knowledge-graph", "review", "github-pages"]
+    }
+  ],
+  "edges": [
+    {
+      "source": "personal-knowledge-graph",
+      "target": "knowledge-management",
+      "relation": "parent"
+    },
+    {
+      "source": "knowledge-management",
+      "target": "personal-knowledge-graph-framework",
+      "relation": "parent"
+    },
+    {
+      "source": "personal-knowledge-graph-framework",
+      "target": "llm-era-fragmented-knowledge-management",
+      "relation": "parent"
+    },
+    {
+      "source": "llm-era-fragmented-knowledge-management",
+      "target": "personal-knowledge-graph-framework",
+      "relation": "related"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+title: Personal Knowledge Graph
+description: LLM-era personal knowledge graph with quick reviews, structured frameworks, and GitHub Pages publishing.
+markdown: kramdown
+theme: minima
+plugins: []
+exclude:
+  - 00_Inbox
+  - 60_Memory
+  - 90_Reviews
+  - .jekyll-cache
+  - node_modules
+  - vendor
