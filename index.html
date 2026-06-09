@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Personal Knowledge Graph</title>
+  <style>
+    :root { color-scheme: light dark; --bg: #0f172a; --card: #111827; --text: #e5e7eb; --muted: #94a3b8; --accent: #60a5fa; --border: #334155; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: linear-gradient(135deg, #0f172a, #1e293b); color: var(--text); }
+    main { max-width: 960px; margin: 0 auto; padding: 56px 24px; }
+    .hero { margin-bottom: 32px; }
+    h1 { font-size: 44px; line-height: 1.1; margin: 0 0 16px; }
+    p { color: var(--muted); font-size: 18px; line-height: 1.7; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 28px; }
+    .card { display: block; padding: 20px; border: 1px solid var(--border); border-radius: 16px; background: rgba(17, 24, 39, .72); text-decoration: none; color: var(--text); }
+    .card:hover { border-color: var(--accent); transform: translateY(-1px); transition: .15s ease; }
+    .card h2 { font-size: 20px; margin: 0 0 8px; }
+    .card span { color: var(--muted); line-height: 1.6; }
+    code { color: #bfdbfe; }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <h1>Personal Knowledge Graph</h1>
+      <p>面向 LLM 时代的个人知识图谱：先快速回顾，再看框架结构，最后进入细粒度知识节点。本页面由 GitHub Pages 托管，本地 Knowledges 目录作为备份与发布源。</p>
+    </section>
+
+    <section class="grid">
+      <a class="card" href="knowledge-map.md">
+        <h2>知识地图</h2>
+        <span>查看总知识框架、分类树和当前核心节点。</span>
+      </a>
+      <a class="card" href="10_Knowledge_Nodes/learning-thinking/2026-06-09_llm-era-fragmented-knowledge-management.md">
+        <h2>LLM 时代碎片化知识管理</h2>
+        <span>本次沉淀的核心知识节点：如何把对话压缩为可复盘知识资产。</span>
+      </a>
+      <a class="card" href="20_Frameworks/learning-thinking/personal-knowledge-graph-framework.md">
+        <h2>个人知识图谱建设框架</h2>
+        <span>持续演进的总框架方法：总图、节点、发布层与复盘层。</span>
+      </a>
+      <a class="card" href="graph.json">
+        <h2>Graph JSON</h2>
+        <span>机器可读的节点与边索引，后续可接入可视化图谱。</span>
+      </a>
+    </section>
+
+    <p>如果你看到这个页面，说明 GitHub Pages 根路径已经修复成功。</p>
+  </main>
+</body>
+</html>
