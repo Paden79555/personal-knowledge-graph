@@ -327,8 +327,23 @@
         "development"
       ]
     }
+    {
+      "id": "ad-algorithm",
+      "title": "广告算法·Query改写与CTR知识体系",
+      "type": "framework",
+      "domain": "engineering",
+      "level": 3,
+      "status": "active",
+      "url": "pages/ad-algorithm/query-rewrite-ctr-knowledge-system.html",
+      "summary": "覆盖Query改写（拼写纠正/语义改写/生成式改写）与CTR预估（序列建模/偏置校准/冷启动）的完整知识体系，含Bad Case驱动技术树与成长路线图。",
+      "tags": [
+        "ad",
+        "ctr",
+        "query-rewrite",
+        "ads"
+      ]
+    }
   ],
-  "edges": [
     {
       "source": "root",
       "target": "formal",
@@ -453,6 +468,11 @@
       "source": "pkg-framework",
       "target": "pkg-roadmap",
       "relation": "documents-roadmap"
+    },
+    {
+      "source": "ai-engineering",
+      "target": "ad-algorithm",
+      "relation": "related"
     }
   ]
 }
