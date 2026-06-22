@@ -9,10 +9,7 @@
       "status": "evergreen",
       "url": "index.html",
       "summary": "个人知识图谱总入口：聚合科学分类、主题框架、细粒度知识节点和复盘机制。",
-      "tags": [
-        "root",
-        "moc"
-      ]
+      "tags": ["root", "moc"]
     },
     {
       "id": "formal",
@@ -23,10 +20,7 @@
       "status": "candidate",
       "url": "#formal",
       "summary": "数学、逻辑、统计、系统科学、计算理论。",
-      "tags": [
-        "math",
-        "logic"
-      ]
+      "tags": ["math", "logic"]
     },
     {
       "id": "natural",
@@ -37,9 +31,7 @@
       "status": "candidate",
       "url": "#natural",
       "summary": "物理、化学、生命科学、地球科学、天文学。",
-      "tags": [
-        "science"
-      ]
+      "tags": ["science"]
     },
     {
       "id": "engineering",
@@ -50,10 +42,7 @@
       "status": "active",
       "url": "#engineering",
       "summary": "软件工程、AI 工程、数据系统、测试、安全、自动化。",
-      "tags": [
-        "tech",
-        "engineering"
-      ]
+      "tags": ["tech", "engineering"]
     },
     {
       "id": "social",
@@ -64,10 +53,7 @@
       "status": "active",
       "url": "#social",
       "summary": "经济、金融、管理、组织、心理、行为科学。",
-      "tags": [
-        "finance",
-        "society"
-      ]
+      "tags": ["finance", "society"]
     },
     {
       "id": "humanities",
@@ -78,9 +64,7 @@
       "status": "candidate",
       "url": "#humanities",
       "summary": "哲学、历史、语言、文学、艺术、写作与表达。",
-      "tags": [
-        "humanities"
-      ]
+      "tags": ["humanities"]
     },
     {
       "id": "life",
@@ -91,9 +75,7 @@
       "status": "active",
       "url": "#life",
       "summary": "健康、关系、职业、消费、家庭、个人运营。",
-      "tags": [
-        "life"
-      ]
+      "tags": ["life"]
     },
     {
       "id": "thinking",
@@ -104,10 +86,7 @@
       "status": "active",
       "url": "#thinking",
       "summary": "知识管理、学习路径、复盘系统、心智模型、研究方法。",
-      "tags": [
-        "thinking",
-        "learning"
-      ]
+      "tags": ["thinking", "learning"]
     },
     {
       "id": "math-stats",
@@ -118,9 +97,7 @@
       "status": "candidate",
       "url": "#math-stats",
       "summary": "概率、统计、优化、建模和数据解释。",
-      "tags": [
-        "statistics"
-      ]
+      "tags": ["statistics"]
     },
     {
       "id": "systems-science",
@@ -131,9 +108,7 @@
       "status": "candidate",
       "url": "#systems-science",
       "summary": "复杂系统、反馈、控制论、网络科学。",
-      "tags": [
-        "systems"
-      ]
+      "tags": ["systems"]
     },
     {
       "id": "ai-engineering",
@@ -144,10 +119,7 @@
       "status": "active",
       "url": "#ai-engineering",
       "summary": "LLM 工作流、Agent、Skill、提示词工程和自动化。",
-      "tags": [
-        "ai",
-        "llm"
-      ]
+      "tags": ["ai", "llm"]
     },
     {
       "id": "software-practice",
@@ -158,9 +130,7 @@
       "status": "candidate",
       "url": "#software-practice",
       "summary": "架构、调试、测试、质量、安全、工程效率。",
-      "tags": [
-        "software"
-      ]
+      "tags": ["software"]
     },
     {
       "id": "finance-investing",
@@ -171,9 +141,7 @@
       "status": "active",
       "url": "#finance-investing",
       "summary": "基金投资、组合管理、风险控制、投资假设与复盘。",
-      "tags": [
-        "finance"
-      ]
+      "tags": ["finance"]
     },
     {
       "id": "behavior-psychology",
@@ -184,9 +152,7 @@
       "status": "candidate",
       "url": "#behavior-psychology",
       "summary": "行为决策、认知偏差、动机与习惯。",
-      "tags": [
-        "psychology"
-      ]
+      "tags": ["psychology"]
     },
     {
       "id": "health",
@@ -197,9 +163,7 @@
       "status": "candidate",
       "url": "#health",
       "summary": "身体、睡眠、运动、营养、心理健康。",
-      "tags": [
-        "health"
-      ]
+      "tags": ["health"]
     },
     {
       "id": "career",
@@ -210,9 +174,7 @@
       "status": "candidate",
       "url": "#career",
       "summary": "职业选择、长期目标、个人项目、时间精力管理。",
-      "tags": [
-        "career"
-      ]
+      "tags": ["career"]
     },
     {
       "id": "knowledge-management",
@@ -223,10 +185,7 @@
       "status": "active",
       "url": "#knowledge-management",
       "summary": "个人知识系统、知识图谱、笔记压缩、MOC 与长期复盘。",
-      "tags": [
-        "pkm",
-        "moc"
-      ]
+      "tags": ["pkm", "moc"]
     },
     {
       "id": "mental-models",
@@ -237,9 +196,7 @@
       "status": "candidate",
       "url": "#mental-models",
       "summary": "决策模型、系统思考、概率思维、反脆弱。",
-      "tags": [
-        "models"
-      ]
+      "tags": ["models"]
     },
     {
       "id": "pkg-framework",
@@ -250,11 +207,7 @@
       "status": "evergreen",
       "url": "pages/frameworks/personal-knowledge-graph-framework.html",
       "summary": "用 GitHub Pages 承载可浏览总知识地图，用本地 Markdown 做备份与发布源。",
-      "tags": [
-        "knowledge-graph",
-        "github-pages",
-        "framework"
-      ]
+      "tags": ["knowledge-graph", "github-pages", "framework"]
     },
     {
       "id": "llm-km",
@@ -265,11 +218,7 @@
       "status": "refined",
       "url": "pages/learning-thinking/llm-era-fragmented-knowledge-management.html",
       "summary": "把高频 LLM 对话压缩成可复习、可跳转、可复盘、可发布的知识节点。",
-      "tags": [
-        "llm",
-        "knowledge-management",
-        "review"
-      ]
+      "tags": ["llm", "knowledge-management", "review"]
     },
     {
       "id": "compression-protocol",
@@ -280,10 +229,7 @@
       "status": "active",
       "url": "#compression-protocol",
       "summary": "对话结束后进行价值筛选、快速回顾、框架定位、节点生成和发布判断。",
-      "tags": [
-        "prompt",
-        "compression"
-      ]
+      "tags": ["prompt", "compression"]
     },
     {
       "id": "pages-layer",
@@ -294,10 +240,7 @@
       "status": "active",
       "url": "#pages-layer",
       "summary": "把公开脱敏知识节点发布成可访问网页，本地只作为备份与生成中转。",
-      "tags": [
-        "github-pages",
-        "publishing"
-      ]
+      "tags": ["github-pages", "publishing"]
     },
     {
       "id": "review-loop",
@@ -308,9 +251,7 @@
       "status": "candidate",
       "url": "#review-loop",
       "summary": "为节点设置 review_after、复盘问题、升级/拆分/归档条件。",
-      "tags": [
-        "review"
-      ]
+      "tags": ["review"]
     },
     {
       "id": "pkg-roadmap",
@@ -321,158 +262,46 @@
       "status": "active",
       "url": "pages/frameworks/personal-knowledge-graph-development-roadmap.html",
       "summary": "沉淀 PRD、现状、架构约束、开发路线图、验证规则和下一步任务，方便后续继续开发。",
-      "tags": [
-        "roadmap",
-        "prd",
-        "development"
-      ]
-    }
+      "tags": ["roadmap", "prd", "development"]
+    },
     {
       "id": "ad-algorithm",
-      "title": "广告算法·Query改写与CTR知识体系",
+      "title": "广告算法·Query改写、CTR/CVR与排序策略",
       "type": "framework",
       "domain": "engineering",
       "level": 3,
       "status": "active",
       "url": "pages/ad-algorithm/query-rewrite-ctr-knowledge-system.html",
-      "summary": "覆盖Query改写（拼写纠正/语义改写/生成式改写）与CTR预估（序列建模/偏置校准/冷启动）的完整知识体系，含Bad Case驱动技术树与成长路线图。",
-      "tags": [
-        "ad",
-        "ctr",
-        "query-rewrite",
-        "ads"
-      ]
+      "summary": "覆盖Query改写、CTR/CVR预估与Query优选排序公式的完整知识体系，拆解pCTR、pCVR、CPC、门控、Top1选择、Bad Case归因与实验路线。",
+      "tags": ["ad", "ctr", "cvr", "query-rewrite", "ranking"]
     }
   ],
-    {
-      "source": "root",
-      "target": "formal",
-      "relation": "domain"
-    },
-    {
-      "source": "root",
-      "target": "natural",
-      "relation": "domain"
-    },
-    {
-      "source": "root",
-      "target": "engineering",
-      "relation": "domain"
-    },
-    {
-      "source": "root",
-      "target": "social",
-      "relation": "domain"
-    },
-    {
-      "source": "root",
-      "target": "humanities",
-      "relation": "domain"
-    },
-    {
-      "source": "root",
-      "target": "life",
-      "relation": "domain"
-    },
-    {
-      "source": "root",
-      "target": "thinking",
-      "relation": "domain"
-    },
-    {
-      "source": "formal",
-      "target": "math-stats",
-      "relation": "parent"
-    },
-    {
-      "source": "formal",
-      "target": "systems-science",
-      "relation": "parent"
-    },
-    {
-      "source": "engineering",
-      "target": "ai-engineering",
-      "relation": "parent"
-    },
-    {
-      "source": "engineering",
-      "target": "software-practice",
-      "relation": "parent"
-    },
-    {
-      "source": "social",
-      "target": "finance-investing",
-      "relation": "parent"
-    },
-    {
-      "source": "social",
-      "target": "behavior-psychology",
-      "relation": "parent"
-    },
-    {
-      "source": "life",
-      "target": "health",
-      "relation": "parent"
-    },
-    {
-      "source": "life",
-      "target": "career",
-      "relation": "parent"
-    },
-    {
-      "source": "thinking",
-      "target": "knowledge-management",
-      "relation": "parent"
-    },
-    {
-      "source": "thinking",
-      "target": "mental-models",
-      "relation": "parent"
-    },
-    {
-      "source": "knowledge-management",
-      "target": "pkg-framework",
-      "relation": "parent"
-    },
-    {
-      "source": "pkg-framework",
-      "target": "llm-km",
-      "relation": "parent"
-    },
-    {
-      "source": "llm-km",
-      "target": "compression-protocol",
-      "relation": "contains"
-    },
-    {
-      "source": "compression-protocol",
-      "target": "pages-layer",
-      "relation": "outputs-to"
-    },
-    {
-      "source": "pkg-framework",
-      "target": "pages-layer",
-      "relation": "publishes-through"
-    },
-    {
-      "source": "pkg-framework",
-      "target": "review-loop",
-      "relation": "reviewed-by"
-    },
-    {
-      "source": "ai-engineering",
-      "target": "compression-protocol",
-      "relation": "related"
-    },
-    {
-      "source": "pkg-framework",
-      "target": "pkg-roadmap",
-      "relation": "documents-roadmap"
-    },
-    {
-      "source": "ai-engineering",
-      "target": "ad-algorithm",
-      "relation": "related"
-    }
+  "edges": [
+    {"source": "root", "target": "formal", "relation": "domain"},
+    {"source": "root", "target": "natural", "relation": "domain"},
+    {"source": "root", "target": "engineering", "relation": "domain"},
+    {"source": "root", "target": "social", "relation": "domain"},
+    {"source": "root", "target": "humanities", "relation": "domain"},
+    {"source": "root", "target": "life", "relation": "domain"},
+    {"source": "root", "target": "thinking", "relation": "domain"},
+    {"source": "formal", "target": "math-stats", "relation": "parent"},
+    {"source": "formal", "target": "systems-science", "relation": "parent"},
+    {"source": "engineering", "target": "ai-engineering", "relation": "parent"},
+    {"source": "engineering", "target": "software-practice", "relation": "parent"},
+    {"source": "social", "target": "finance-investing", "relation": "parent"},
+    {"source": "social", "target": "behavior-psychology", "relation": "parent"},
+    {"source": "life", "target": "health", "relation": "parent"},
+    {"source": "life", "target": "career", "relation": "parent"},
+    {"source": "thinking", "target": "knowledge-management", "relation": "parent"},
+    {"source": "thinking", "target": "mental-models", "relation": "parent"},
+    {"source": "knowledge-management", "target": "pkg-framework", "relation": "parent"},
+    {"source": "pkg-framework", "target": "llm-km", "relation": "parent"},
+    {"source": "llm-km", "target": "compression-protocol", "relation": "contains"},
+    {"source": "compression-protocol", "target": "pages-layer", "relation": "outputs-to"},
+    {"source": "pkg-framework", "target": "pages-layer", "relation": "publishes-through"},
+    {"source": "pkg-framework", "target": "review-loop", "relation": "reviewed-by"},
+    {"source": "ai-engineering", "target": "compression-protocol", "relation": "related"},
+    {"source": "pkg-framework", "target": "pkg-roadmap", "relation": "documents-roadmap"},
+    {"source": "ai-engineering", "target": "ad-algorithm", "relation": "related"}
   ]
 }
