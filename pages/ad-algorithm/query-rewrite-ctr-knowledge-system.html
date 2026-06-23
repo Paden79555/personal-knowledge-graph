@@ -3,199 +3,186 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>广告算法成长作战图 · Query改写、CTR/CVR与Query优选排序</title>
-<meta name="description" content="面向广告算法工程师的作战型知识体系：覆盖Query理解与改写、CTR/CVR、多目标排序、实验监控、Bad Case归因、论文方法地图与成长Roadmap。" />
+<title>广告算法知识体系树 · Query改写、CTR/CVR与Query优选排序</title>
+<meta name="description" content="面向广告算法工程师的完整知识体系树：覆盖Query理解、Query改写、召回、CTR、CVR、排序公式、实验监控、Bad Case归因、论文方法地图与成长Roadmap。" />
 <style>
 :root{--bg:#06111f;--panel:#0b1424;--panel2:#101c31;--panel3:#13233d;--text:#eef5ff;--muted:#93a7c3;--line:#24405f;--blue:#4ea1ff;--cyan:#24d4ff;--violet:#a78bfa;--green:#33d69f;--amber:#f7c948;--rose:#fb7185;--orange:#fb923c;--shadow:0 24px 80px rgba(0,0,0,.32)}
-*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,"PingFang SC",sans-serif;background:radial-gradient(circle at 12% 8%,rgba(78,161,255,.2),transparent 32%),radial-gradient(circle at 88% 5%,rgba(167,139,250,.16),transparent 28%),radial-gradient(circle at 50% 100%,rgba(36,212,255,.1),transparent 34%),var(--bg);color:var(--text);line-height:1.62}a{color:var(--cyan)}code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#d8f7ff;background:#07101d;border:1px solid var(--line);border-radius:6px;padding:1px 5px}.wrap{max-width:1240px;margin:0 auto;padding:28px 22px 80px}.back{display:inline-block;margin-bottom:14px;font-size:13px;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:6px 14px;color:var(--muted)}.hero{border:1px solid var(--line);border-radius:24px;background:linear-gradient(180deg,rgba(19,35,61,.72),rgba(11,20,36,.9));padding:30px 32px;box-shadow:var(--shadow);position:relative;overflow:hidden}.hero:after{content:"";position:absolute;right:-70px;top:-70px;width:280px;height:280px;border-radius:50%;background:conic-gradient(from 200deg,var(--blue),var(--cyan),var(--violet),var(--blue));opacity:.16;filter:blur(8px)}.hero h1{margin:0 0 8px;font-size:30px;letter-spacing:0}.hero p{margin:0;color:var(--muted);max-width:900px}.kpis{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.kpi{border:1px solid var(--line);border-radius:14px;padding:10px 14px;background:rgba(8,18,33,.62)}.kpi b{display:block;font-size:13px;color:var(--cyan)}.kpi span{font-size:12px;color:var(--muted)}.tabbar{position:sticky;top:0;z-index:30;display:flex;gap:8px;flex-wrap:wrap;margin:22px 0;padding:10px;border:1px solid var(--line);border-radius:16px;background:rgba(8,18,33,.93);backdrop-filter:blur(14px)}.tab{border:1px solid var(--line);background:rgba(16,28,49,.72);color:var(--text);border-radius:12px;padding:9px 13px;cursor:pointer;font-size:13px}.tab.active{border-color:var(--cyan);box-shadow:0 0 0 1px rgba(36,212,255,.25) inset;color:#bff5ff}.panel{display:none;animation:fade .25s ease}.panel.active{display:block}@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}h2.sec{font-size:21px;margin:26px 0 6px;display:flex;align-items:center;gap:10px}.dot{width:10px;height:10px;border-radius:50%;background:var(--cyan)}.lead{color:var(--muted);margin:0 0 16px;max-width:960px}.grid{display:grid;gap:14px}.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}@media(max-width:1000px){.g2,.g3,.g4{grid-template-columns:1fr}.micro{grid-template-columns:1fr!important}.step{grid-template-columns:1fr!important}}.card{border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,rgba(19,35,61,.62),rgba(11,20,36,.8));padding:18px}.card h3{margin:0 0 8px;font-size:16px}.card p{margin:0;color:var(--muted);font-size:13px}.tag{display:inline-block;margin:6px 6px 0 0;border:1px solid var(--line);border-radius:999px;padding:4px 9px;font-size:11px;color:#cbd5e1;background:#0b1424}.tag.blue{border-color:rgba(78,161,255,.55);color:#bcd8ff}.tag.violet{border-color:rgba(167,139,250,.55);color:#dccffd}.tag.green{border-color:rgba(51,214,159,.55);color:#bff3df}.tag.amber{border-color:rgba(247,201,72,.55);color:#fce8ad}.tag.rose{border-color:rgba(251,113,133,.55);color:#fecdd6}.callout{border:1px solid var(--line);border-left:4px solid var(--amber);border-radius:0 14px 14px 0;background:rgba(247,201,72,.06);padding:14px 16px;margin:16px 0;font-size:13.5px;color:#f4ecd6}.callout b{color:var(--amber)}.formula{border:1px solid rgba(36,212,255,.45);border-radius:18px;background:linear-gradient(135deg,rgba(36,212,255,.08),rgba(167,139,250,.08));padding:18px;margin:16px 0}.formula .expr{font-size:21px;font-weight:800;color:#dffbff;line-height:1.35}.formula .note{color:var(--muted);font-size:13px;margin-top:8px}.matrix{width:100%;border-collapse:separate;border-spacing:0 8px}.matrix td{padding:10px 12px;background:rgba(16,28,49,.58);border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:13px;vertical-align:top}.matrix td:first-child{border-left:1px solid var(--line);border-radius:12px 0 0 12px;font-weight:700;width:210px}.matrix td:last-child{border-right:1px solid var(--line);border-radius:0 12px 12px 0}.tree{border:1px solid var(--line);border-radius:18px;background:rgba(11,20,36,.62);padding:8px 8px 14px}.node{margin:8px 0;border:1px solid var(--line);border-radius:14px;background:rgba(16,28,49,.56);overflow:hidden}.node>summary{list-style:none;cursor:pointer;padding:12px 16px;display:flex;align-items:center;gap:10px;font-weight:650}.node>summary::-webkit-details-marker{display:none}.node>summary:before{content:"▸";color:var(--cyan);transition:.2s}.node[open]>summary:before{transform:rotate(90deg)}.node .body{padding:4px 18px 16px 40px}.lvl1>summary{font-size:16px}.lvl2>summary{font-size:14px;color:#cbe3ff}.leaf{margin:8px 0;padding:12px 14px;border-left:2px solid var(--line);background:rgba(8,18,33,.55);border-radius:0 12px 12px 0}.leaf b{color:#dbeafe}.leaf small{display:block;color:var(--muted);margin-top:3px;font-size:12.5px}.leaf ul{margin:8px 0 0;padding-left:18px;color:#dbe7f7;font-size:12.8px}.leaf li{margin:3px 0}.micro{display:grid;grid-template-columns:118px 1fr;gap:8px;margin-top:8px;font-size:12.5px}.micro div:nth-child(odd){color:var(--cyan);font-weight:700}.micro div:nth-child(even){color:#dbe7f7}.fmap{display:grid;gap:14px}.frow{border:1px solid var(--line);border-radius:18px;background:linear-gradient(90deg,rgba(251,113,133,.08),rgba(11,20,36,.62) 30%);overflow:hidden}.frow summary{list-style:none;cursor:pointer;padding:16px 18px;display:flex;gap:14px;align-items:flex-start}.frow summary::-webkit-details-marker{display:none}.fbadge{flex:0 0 auto;border:1px solid var(--rose);color:#fecdd6;border-radius:10px;padding:6px 10px;font-size:12px;font-weight:700;background:rgba(251,113,133,.08)}.ftitle{font-weight:750}.fsub{color:var(--muted);font-size:13px;margin-top:3px}.fbody{padding:0 18px 18px}.chain{display:grid;gap:8px;margin-top:6px}.step{display:grid;grid-template-columns:130px 1fr;gap:12px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:rgba(8,18,33,.52)}.step .k{font-size:12px;color:var(--cyan);font-weight:750}.step .v{font-size:13px;color:#dbe7f7}.step em{color:var(--amber);font-style:normal}.timeline{position:relative;margin-left:8px;padding-left:24px;border-left:2px solid var(--line)}.tl{position:relative;margin:0 0 18px}.tl:before{content:"";position:absolute;left:-31px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--violet);box-shadow:0 0 0 4px rgba(167,139,250,.18)}.tl h4{margin:0;font-size:15px}.tl .era{font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}.tl p{margin:6px 0 0;color:var(--muted);font-size:13px}.phase{border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,rgba(19,35,61,.62),rgba(11,20,36,.82));padding:18px;margin:0 0 14px;position:relative}.ph{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.ph h3{margin:0;font-size:17px}.when{font-size:12px;color:#06111f;background:var(--cyan);border-radius:999px;padding:4px 12px;font-weight:800}.phase ul{margin:10px 0 0;padding-left:18px;color:#dbe7f7;font-size:13.5px}.phase li{margin:5px 0}.deliver{margin-top:12px;border-top:1px dashed var(--line);padding-top:10px;font-size:13px}.deliver b{color:var(--green)}.redline{margin-top:8px;font-size:13px;color:#fecdd6}.redline b{color:var(--rose)}.flow{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin:18px 0}.flow div{border:1px solid var(--line);border-radius:14px;background:rgba(16,28,49,.62);padding:12px;text-align:center;font-size:12px;color:#dbe7f7}.flow b{display:block;color:var(--cyan);font-size:13px;margin-bottom:4px}@media(max-width:1000px){.flow{grid-template-columns:1fr 1fr}}.foot{margin-top:40px;border-top:1px solid var(--line);padding-top:18px;color:var(--muted);font-size:12px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,"PingFang SC",sans-serif;background:radial-gradient(circle at 12% 8%,rgba(78,161,255,.18),transparent 30%),radial-gradient(circle at 90% 0%,rgba(167,139,250,.14),transparent 28%),var(--bg);color:var(--text);line-height:1.62}a{color:var(--cyan)}code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#d8f7ff;background:#07101d;border:1px solid var(--line);border-radius:6px;padding:1px 5px}.wrap{max-width:1280px;margin:0 auto;padding:28px 22px 80px}.back{display:inline-block;margin-bottom:14px;font-size:13px;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:6px 14px;color:var(--muted)}.hero{border:1px solid var(--line);border-radius:24px;background:linear-gradient(180deg,rgba(19,35,61,.72),rgba(11,20,36,.92));padding:30px 32px;box-shadow:var(--shadow)}.hero h1{margin:0 0 8px;font-size:31px;letter-spacing:0}.hero p{margin:0;color:var(--muted);max-width:980px}.kpis{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.kpi{border:1px solid var(--line);border-radius:14px;padding:10px 14px;background:rgba(8,18,33,.62)}.kpi b{display:block;font-size:13px;color:var(--cyan)}.kpi span{font-size:12px;color:var(--muted)}.tabbar{position:sticky;top:0;z-index:30;display:flex;gap:8px;flex-wrap:wrap;margin:22px 0;padding:10px;border:1px solid var(--line);border-radius:16px;background:rgba(8,18,33,.94);backdrop-filter:blur(14px)}.tab{border:1px solid var(--line);background:rgba(16,28,49,.72);color:var(--text);border-radius:12px;padding:9px 13px;cursor:pointer;font-size:13px}.tab.active{border-color:var(--cyan);box-shadow:0 0 0 1px rgba(36,212,255,.25) inset;color:#bff5ff}.panel{display:none;animation:fade .2s ease}.panel.active{display:block}@keyframes fade{from{opacity:.35;transform:translateY(4px)}to{opacity:1;transform:none}}h2.sec{font-size:21px;margin:26px 0 6px;display:flex;align-items:center;gap:10px}.dot{width:10px;height:10px;border-radius:50%;background:var(--cyan)}.lead{color:var(--muted);margin:0 0 16px;max-width:980px}.grid{display:grid;gap:14px}.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}@media(max-width:1000px){.g2,.g3,.g4{grid-template-columns:1fr}.split,.micro,.step,.maprow{grid-template-columns:1fr!important}.flow{grid-template-columns:1fr 1fr!important}}.card{border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,rgba(19,35,61,.62),rgba(11,20,36,.82));padding:18px}.card h3{margin:0 0 8px;font-size:16px}.card p{margin:0;color:var(--muted);font-size:13px}.tag{display:inline-block;margin:6px 6px 0 0;border:1px solid var(--line);border-radius:999px;padding:4px 9px;font-size:11px;color:#cbd5e1;background:#0b1424}.green{border-color:rgba(51,214,159,.55);color:#bff3df}.amber{border-color:rgba(247,201,72,.55);color:#fce8ad}.rose{border-color:rgba(251,113,133,.55);color:#fecdd6}.blue{border-color:rgba(78,161,255,.55);color:#bcd8ff}.violet{border-color:rgba(167,139,250,.55);color:#dccffd}.callout{border:1px solid var(--line);border-left:4px solid var(--amber);border-radius:0 14px 14px 0;background:rgba(247,201,72,.06);padding:14px 16px;margin:16px 0;font-size:13.5px;color:#f4ecd6}.callout b{color:var(--amber)}.formula{border:1px solid rgba(36,212,255,.45);border-radius:18px;background:linear-gradient(135deg,rgba(36,212,255,.08),rgba(167,139,250,.08));padding:18px;margin:16px 0}.expr{font-size:21px;font-weight:800;color:#dffbff;line-height:1.35}.note{color:var(--muted);font-size:13px;margin-top:8px}.matrix{width:100%;border-collapse:separate;border-spacing:0 8px}.matrix td{padding:10px 12px;background:rgba(16,28,49,.58);border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:13px;vertical-align:top}.matrix td:first-child{border-left:1px solid var(--line);border-radius:12px 0 0 12px;font-weight:700;width:205px}.matrix td:last-child{border-right:1px solid var(--line);border-radius:0 12px 12px 0}.tree{border:1px solid var(--line);border-radius:18px;background:rgba(11,20,36,.62);padding:8px 8px 14px}.node{margin:8px 0;border:1px solid var(--line);border-radius:14px;background:rgba(16,28,49,.56);overflow:hidden}.node>summary{list-style:none;cursor:pointer;padding:12px 16px;display:flex;align-items:center;gap:10px;font-weight:650}.node>summary::-webkit-details-marker{display:none}.node>summary:before{content:"▸";color:var(--cyan);transition:.2s}.node[open]>summary:before{transform:rotate(90deg)}.body{padding:4px 18px 16px 40px}.lvl1>summary{font-size:16px}.lvl2>summary{font-size:14px;color:#cbe3ff}.leaf{margin:8px 0;padding:12px 14px;border-left:2px solid var(--line);background:rgba(8,18,33,.55);border-radius:0 12px 12px 0}.leaf b{color:#dbeafe}.leaf small{display:block;color:var(--muted);margin-top:3px;font-size:12.5px}.leaf ul{margin:8px 0 0;padding-left:18px;color:#dbe7f7;font-size:12.8px}.leaf li{margin:3px 0}.micro{display:grid;grid-template-columns:118px 1fr;gap:8px;margin-top:8px;font-size:12.5px}.micro div:nth-child(odd){color:var(--cyan);font-weight:700}.micro div:nth-child(even){color:#dbe7f7}.flow{display:grid;grid-template-columns:repeat(8,1fr);gap:8px;margin:18px 0}.flow div{border:1px solid var(--line);border-radius:14px;background:rgba(16,28,49,.62);padding:12px;text-align:center;font-size:12px;color:#dbe7f7}.flow b{display:block;color:var(--cyan);font-size:13px;margin-bottom:4px}.maprow{display:grid;grid-template-columns:150px 1fr;gap:12px;border:1px solid var(--line);border-radius:14px;padding:12px;margin:8px 0;background:rgba(8,18,33,.52)}.maprow .k{font-size:13px;color:var(--cyan);font-weight:800}.maprow .v{font-size:13px;color:#dbe7f7}.frow{border:1px solid var(--line);border-radius:18px;background:linear-gradient(90deg,rgba(251,113,133,.08),rgba(11,20,36,.62) 30%);overflow:hidden;margin:12px 0}.frow summary{list-style:none;cursor:pointer;padding:16px 18px;display:flex;gap:14px;align-items:flex-start}.frow summary::-webkit-details-marker{display:none}.fbadge{flex:0 0 auto;border:1px solid var(--rose);color:#fecdd6;border-radius:10px;padding:6px 10px;font-size:12px;font-weight:700;background:rgba(251,113,133,.08)}.ftitle{font-weight:750}.fsub{color:var(--muted);font-size:13px;margin-top:3px}.fbody{padding:0 18px 18px}.chain{display:grid;gap:8px;margin-top:6px}.step{display:grid;grid-template-columns:130px 1fr;gap:12px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:rgba(8,18,33,.52)}.step .k{font-size:12px;color:var(--cyan);font-weight:750}.step .v{font-size:13px;color:#dbe7f7}.phase{border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,rgba(19,35,61,.62),rgba(11,20,36,.82));padding:18px;margin:0 0 14px}.ph{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.ph h3{margin:0;font-size:17px}.when{font-size:12px;color:#06111f;background:var(--cyan);border-radius:999px;padding:4px 12px;font-weight:800}.phase ul{margin:10px 0 0;padding-left:18px;color:#dbe7f7;font-size:13.5px}.deliver{margin-top:12px;border-top:1px dashed var(--line);padding-top:10px;font-size:13px}.deliver b{color:var(--green)}.split{display:grid;grid-template-columns:1.1fr .9fr;gap:14px}.checklist li{margin:6px 0}.quality{border:1px solid var(--line);border-radius:18px;background:rgba(8,18,33,.6);padding:16px;margin-top:18px}.pass{color:var(--green);font-weight:800}.warn{color:var(--amber);font-weight:800}.foot{margin-top:40px;border-top:1px solid var(--line);padding-top:18px;color:var(--muted);font-size:12px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 </style>
 </head>
 <body>
 <div class="wrap">
   <a class="back" href="../../index.html">返回知识图谱总览</a>
   <section class="hero">
-    <h1>广告算法成长作战图：Query 改写、CTR/CVR 与 Query 优选排序</h1>
-    <p>这不是一页广告算法百科，而是一张“如何在当前业务里成长为核心工程师”的作战图。主线是：<strong>Query 改写候选生成 → 召回 → pCTR/pCVR 预估 → CPC/门控/排序公式 → Top1 Query → AB 实验 → Bad Case 回流</strong>。每个知识点都要落到数据口径、诊断指标、实现路径、线上风险和可交付项目。</p>
+    <h1>广告算法知识体系树：Query 改写、CTR/CVR 与 Query 优选排序</h1>
+    <p>这版页面的目标不是速查，而是帮你建立完整、可扩展、可复盘的知识结构。主线从用户 Query 出发，经过 Query 理解、改写、召回、CTR/CVR 预估、CPC 门控、排序公式、Top1 选择、AB 实验与 Bad Case 回流，最终沉淀成技术框架、项目路线和成长 Roadmap。</p>
     <div class="kpis">
-      <div class="kpi"><b>8 层技术栈</b><span>理解/改写/召回/CTR/CVR/排序/实验/工程</span></div>
-      <div class="kpi"><b>12 类 Query Bad Case</b><span>从现象到实现路径</span></div>
-      <div class="kpi"><b>1 个业务公式</b><span>pCTR × CPC^α × (1 + 10 × pCVR)</span></div>
-      <div class="kpi"><b>1 条成长主线</b><span>执行层 → 工程层 → 决策层</span></div>
+      <div class="kpi"><b>完整知识体系树</b><span>8大模块 × 多层子节点 × 叶子检查项</span></div>
+      <div class="kpi"><b>业务公式贯穿</b><span>pCTR × CPC^α × (1 + 10 × pCVR)</span></div>
+      <div class="kpi"><b>微观技术点</b><span>Badcase分类、实现路径、指标、进阶方法</span></div>
+      <div class="kpi"><b>成长路线</b><span>从执行层到能定义排序目标</span></div>
     </div>
   </section>
 
   <nav class="tabbar" id="tabbar">
-    <button class="tab active" data-t="overview">总览·心法</button>
-    <button class="tab" data-t="stack">技术栈全景</button>
-    <button class="tab" data-t="rewrite">Query改写深水区</button>
-    <button class="tab" data-t="ctrcvr">CTR/CVR体系</button>
+    <button class="tab active" data-t="overview">总览心法</button>
+    <button class="tab" data-t="tree">知识体系树</button>
+    <button class="tab" data-t="rewrite">Query理解/改写</button>
+    <button class="tab" data-t="retrieval">召回与候选</button>
+    <button class="tab" data-t="ctrcvr">CTR/CVR</button>
     <button class="tab" data-t="ranking">排序公式</button>
     <button class="tab" data-t="badcase">Bad Case归因</button>
     <button class="tab" data-t="experiment">实验监控</button>
     <button class="tab" data-t="papers">论文方法地图</button>
-    <button class="tab" data-t="roadmap">成长Roadmap</button>
+    <button class="tab" data-t="roadmap">Roadmap</button>
+    <button class="tab" data-t="workbench">项目工作台</button>
+    <button class="tab" data-t="validation">验证门禁</button>
   </nav>
 
   <section class="panel active" id="overview">
-    <h2 class="sec"><span class="dot"></span>核心判断：护城河不是“会模型”，而是能定义和诊断排序目标</h2>
-    <p class="lead">AI 时代广告算法工程师的护城河，不是会不会调某个 CTR/CVR 模型，而是能否把业务目标拆成可学习、可诊断、可实验、可复盘的系统。对你来说，最值得打穿的闭环是：Query 改写候选生成 → CTR/CVR 预估 → CPC/门控/排序公式 → Top1 Query 选择 → 线上 AB → Bad Case 反哺。</p>
+    <h2 class="sec"><span class="dot"></span>核心判断：最有价值的不是某个模型，而是完整决策系统</h2>
+    <p class="lead">广告算法工程师的不可替代性来自三件事：看得懂链路、诊断得出因果、能把模型分数变成可控的业务决策。你的业务里最好的抓手就是 Query 优选排序公式，因为它把 Query 改写、CTR、CVR、CPC、门控和 Top1 决策都绑在一起。</p>
     <div class="grid g3">
-      <div class="card"><h3>① 执行层（易替代）</h3><p>调包调参、跑 baseline、点 SFT/RL 平台、写规则、改公式参数、看单一 CTR 指标。AI 和平台化工具最先吃掉这层。</p><span class="tag rose">低护城河</span></div>
-      <div class="card"><h3>② 工程层（部分替代）</h3><p>打通数据、模型、排序、监控和 AB；把 LLM 离线能力蒸馏成线上可用模块；能解释 Top1 为什么胜出。</p><span class="tag amber">可迁移资产</span></div>
-      <div class="card"><h3>③ 决策层（护城河）</h3><p>定义优化目标，判断为什么不是只优化 CTR；权衡 CVR、RPM、相关性、广告主 ROI、用户体验和预算消耗。</p><span class="tag green">核心团队能力</span></div>
+      <div class="card"><h3>执行层：低护城河</h3><p>调参、跑脚本、点 SFT/RL 平台、补规则、看整体 CTR。AI 与平台最容易替代这层。</p><span class="tag rose">容易被替代</span></div>
+      <div class="card"><h3>工程层：可迁移资产</h3><p>打通日志、样本、特征、模型、排序、监控、AB；能复现 Top1 为什么变。</p><span class="tag amber">工程闭环</span></div>
+      <div class="card"><h3>决策层：核心护城河</h3><p>能定义优化目标，平衡 CTR、CVR、RPM、相关性、广告主 ROI、用户体验与长期价值。</p><span class="tag green">目标函数能力</span></div>
     </div>
-    <div class="callout"><b>心法：</b>不要追“最新技术”，要追“正好能解释当前业务问题、并能被线上实验验证”的技术。简历上“了解 LLM/CTR/CVR”不值钱；“围绕 Query 优选排序公式，定位长尾 query 的 pCVR 低估问题，通过 CVR 校准 + 长尾改写 + 门控策略调整，使某类 query 的 RPM/CVR 提升 X%”才值钱。</div>
-
-    <h2 class="sec"><span class="dot"></span>把当前资源武器化</h2>
+    <div class="callout"><b>恢复知识体系树的原因：</b>只做速查卡片会丢掉最有价值的“结构感”。真正有用的页面应该先给你一棵完整树，再在每个叶子节点下钻到概念、方法、指标、常见坑、实现路径和项目机会。</div>
+    <h2 class="sec"><span class="dot"></span>当前资源如何武器化</h2>
     <table class="matrix">
-      <tr><td>真实流量 / 日志</td><td>外面买不到的私域资产。按 query 头/腰/尾、改写类型、pCTR 桶、pCVR 桶、CPC 桶、门控状态拆，而不是只看整体 CTR。</td></tr>
-      <tr><td>AB 实验平台</td><td>把技术假设变成实验：α 调整、CVR 系数、门控阈值、长尾改写、相关性约束、校准前后 Top1 变化。</td></tr>
-      <tr><td>傻瓜式 SFT/RL 工具</td><td>不要只会点按钮。反拆样本来源、reward 定义、负样本构造、是否引入语义漂移，把平台工具变成理解训练链路的入口。</td></tr>
-      <tr><td>非技术 Leader</td><td>用业务语言汇报：不是“ESMM 很先进”，而是“CVR 只在点击样本上学，会低估某些高转化 query，导致排序少赚且体验不稳”。</td></tr>
-      <tr><td>落后的 CNN CTR</td><td>机会而不是纯劣势。你可以用 DeepFM/DIN/ESMM 做一次代际升级，形成“老模型 → 多目标排序体系”的代表作。</td></tr>
-      <tr><td>当前排序公式</td><td>最好的学习入口。pCTR、pCVR、CPC、门控、Top1 每一项都能牵出一整套技术体系和实验体系。</td></tr>
+      <tr><td>真实流量/日志</td><td>按 query 头腰尾、改写来源、pCTR桶、pCVR桶、CPC桶、门控状态、Top1来源拆，而不是只看整体均值。</td></tr>
+      <tr><td>AB实验平台</td><td>把技术假设变成实验：长尾改写、CVR校准、α调整、CVR系数、门控阈值、相关性约束。</td></tr>
+      <tr><td>SFT/RL工具</td><td>不要只会点按钮，要反拆样本构造、reward、负样本、拒绝样本、约束过滤、蒸馏上线。</td></tr>
+      <tr><td>非技术Leader</td><td>用业务语言汇报：不是“上ESMM”，而是“CVR只在点击空间学习，导致高转化长尾query排序被低估”。</td></tr>
+      <tr><td>落后CNN CTR</td><td>是机会：先建立校准和偏差诊断，再提出 DeepFM/DCN/DIN/ESMM 的可落地升级路径。</td></tr>
+      <tr><td>当前排序公式</td><td>是学习入口：pCTR、pCVR、CPC、门控、Top1 每一项都能牵出完整技术体系。</td></tr>
     </table>
   </section>
 
-  <section class="panel" id="stack">
-    <h2 class="sec"><span class="dot"></span>广告 Query 优选系统：8 层技术栈全景</h2>
-    <div class="flow">
-      <div><b>Query理解</b>分词/实体/意图/类目/属性</div><div><b>Query改写</b>纠错/同义/扩展/生成式</div><div><b>召回</b>倒排/向量/query2query/graph</div><div><b>CTR</b>特征/交叉/序列/bias/校准</div><div><b>CVR</b>标签/SSB/延迟/ESMM/多任务</div><div><b>排序</b>CPC/门控/Top1/多目标</div><div><b>回流</b>日志/AB/监控/badcase</div>
-    </div>
+  <section class="panel" id="tree">
+    <h2 class="sec"><span class="dot"></span>完整知识体系树：从链路到叶子节点</h2>
+    <p class="lead">这一部分是页面的骨架。你后续学习、复盘、做项目，都应该能把问题挂回这棵树上：到底是 Query 语义问题、召回问题、CTR/CVR 分数问题、排序目标问题，还是实验/监控问题。</p>
+    <div class="flow"><div><b>1 Query理解</b>词/实体/意图/类目/属性</div><div><b>2 Query改写</b>纠错/扩展/生成/过滤</div><div><b>3 召回</b>倒排/向量/图/多路融合</div><div><b>4 CTR</b>特征/模型/bias/校准</div><div><b>5 CVR</b>标签/SSB/延迟/多任务</div><div><b>6 排序</b>CPC/门控/Top1/多目标</div><div><b>7 实验</b>AB/AA/CUPED/护栏</div><div><b>8 工程</b>日志/监控/上线/复盘</div></div>
     <div class="tree">
-      <details class="node lvl1" open><summary>1. Query 理解层</summary><div class="body">
-        <div class="leaf"><b>核心产物</b><small>把自然语言 query 解析成结构化语义：品牌、品类、型号、属性、价格、场景、服务/购买/信息意图。</small><div class="micro"><div>方法</div><div>词典分词、NER、实体链接、query-category 分类、LLM 意图解析。</div><div>指标</div><div>实体识别准确率、类目准确率、意图一致率、属性保留率。</div><div>常见坑</div><div>多义词消歧差；把“苹果维修”当“苹果手机”；把服务意图误判为购买意图。</div></div></div>
+      <details class="node lvl1" open><summary>A. Query理解层：把自然语言变成可计算语义</summary><div class="body">
+        <details class="node lvl2" open><summary>A1 分词与标准化</summary><div class="body"><div class="leaf"><b>叶子节点</b><small>分词、大小写/繁简/空格/型号标准化、拼音/错别字归一。</small><ul><li>指标：OOV率、标准化命中率、无结果率变化。</li><li>坑：型号、品牌、地域词被错误切开。</li></ul></div></div></details>
+        <details class="node lvl2" open><summary>A2 实体识别与实体链接</summary><div class="body"><div class="leaf"><b>叶子节点</b><small>品牌、品类、型号、地点、人群、服务、价格、功能实体识别，并链接到广告/商品/行业知识库。</small><ul><li>指标：实体识别准确率、实体保留率、实体新增幻觉率。</li><li>业务价值：防止 Query 改写丢品牌、丢型号、跨类目。</li></ul></div></div></details>
+        <details class="node lvl2"><summary>A3 意图识别</summary><div class="body"><div class="leaf"><b>叶子节点</b><small>购买、信息、比较、维修、招聘、招商、下载、导航、本地服务等意图。</small><ul><li>方法：规则词典、文本分类、多任务模型、LLM解释+小模型蒸馏。</li><li>坑：CTR高不代表购买意图强，必须看CVR/RPM。</li></ul></div></div></details>
       </div></details>
-      <details class="node lvl1" open><summary>2. Query 改写层</summary><div class="body"><div class="leaf"><b>核心产物</b><small>生成一组候选 query，而不是直接替换原 query。每个候选带来源、置信度、实体保留率、类目一致性、预估召回收益。</small><div class="micro"><div>方法</div><div>规则/词典、query log、query-ad graph、向量相似、LLM 生成 + 约束过滤 + 蒸馏。</div><div>指标</div><div>改写触发率、坏改写率、无结果率下降、召回相关率、Top1 变化率。</div></div></div></div></details>
-      <details class="node lvl1"><summary>3. 召回层</summary><div class="body"><div class="leaf"><b>多路召回</b><small>倒排召回负责精确匹配，向量召回负责语义覆盖，query2query 负责历史行为相似，query-ad graph 负责商业关联。</small><div class="micro"><div>指标</div><div>召回量、有效召回率、相关广告占比、长尾覆盖率、召回 latency。</div><div>坑</div><div>召回多不等于好；向量召回容易语义近但商业意图错。</div></div></div></div></details>
-      <details class="node lvl1"><summary>4. CTR/CVR 预估层</summary><div class="body"><div class="leaf"><b>核心问题</b><small>pCTR/pCVR 不只是模型输出，它们直接进入排序公式，因此数值可信度和分桶校准比单纯 AUC 更关键。</small><div class="micro"><div>技术</div><div>DeepFM/DCN/DIN/DIEN/SIM、ESMM/MMoE/PLE、校准、debias。</div><div>监控</div><div>分桶校准、长尾桶、CPC桶、行业桶、改写类型桶。</div></div></div></div></details>
-      <details class="node lvl1"><summary>5. 排序决策层</summary><div class="body"><div class="leaf"><b>当前公式</b><small>CPC门控通过：Score = pCTR × CPC^α × (1 + 10 × pCVR)；否则 Score = pCTR × CPC^α；按分降序取 Top1。</small><div class="micro"><div>诊断</div><div>α sweep、CVR 系数 sweep、门控边界样本、Top1/Top2 分差、Top1 flip rate。</div><div>风险</div><div>高CPC低相关上浮、pCVR误差被放大、硬门控边界抖动、Top1强决策放大模型误差。</div></div></div></div></details>
+      <details class="node lvl1" open><summary>B. Query改写层：生成候选而不是直接替换</summary><div class="body">
+        <details class="node lvl2" open><summary>B1 改写类型</summary><div class="body"><div class="leaf"><b>叶子节点</b><small>纠错、同义改写、扩展、缩写补全、属性补全、类目泛化、意图保持改写、长尾商业改写。</small><ul><li>指标：触发率、坏改写率、召回提升、Top1变化、CTR/CVR/RPM。</li></ul></div></div></details>
+        <details class="node lvl2"><summary>B2 候选生成</summary><div class="body"><div class="leaf"><b>叶子节点</b><small>规则/词典、query log、co-click、query-ad graph、向量相似、T5/BART/LLM生成。</small><ul><li>进阶：LLM离线生成候选，小模型/规则在线过滤，缓存上线。</li></ul></div></div></details>
+        <details class="node lvl2"><summary>B3 候选约束与Rerank</summary><div class="body"><div class="leaf"><b>叶子节点</b><small>实体保留、属性保留、类目一致、意图一致、相关性阈值、CPC诱导约束、坏改写分类器。</small></div></div></details>
+      </div></details>
+      <details class="node lvl1"><summary>C. 召回层：让候选Query找得到足够好广告</summary><div class="body">
+        <details class="node lvl2" open><summary>C1 多路召回</summary><div class="body"><div class="leaf"><b>叶子节点</b><small>倒排召回、语义向量召回、query2query、query-ad graph、广告主/行业召回、多路融合。</small><ul><li>指标：召回量、有效召回率、相关广告占比、长尾覆盖率、latency。</li><li>坑：召回多可能只是噪声多；语义近不等于商业意图一致。</li></ul></div></div></details>
+        <details class="node lvl2"><summary>C2 候选质量标注</summary><div class="body"><div class="leaf"><b>叶子节点</b><small>来源、触发原因、置信度、召回广告数、人工相关性、历史点击/转化、行业分布。</small><ul><li>项目机会：把“候选query质量画像”做成离线表，支撑所有改写实验。</li></ul></div></div></details>
+      </div></details>
+      <details class="node lvl1"><summary>D. CTR层：从点击概率到可信pCTR</summary><div class="body">
+        <details class="node lvl2" open><summary>D1 样本与特征</summary><div class="body"><div class="leaf"><b>叶子节点</b><small>曝光/点击样本、负采样、时间切分、用户/广告/query/上下文/统计/序列特征。</small><ul><li>检查：样本是否穿越、负样本是否污染、头尾query分布是否失衡。</li></ul></div></div></details>
+        <details class="node lvl2"><summary>D2 模型与交叉</summary><div class="body"><div class="leaf"><b>叶子节点</b><small>LR、GBDT+LR、FM/FFM、Wide&Deep、DeepFM、DCN/DCNv2、DIN、DIEN、SIM/ETA。</small><ul><li>学习方式：每代模型只问一个问题，它比上一代多解决了什么交叉/序列/泛化问题。</li></ul></div></div></details>
+        <details class="node lvl2"><summary>D3 Bias与校准</summary><div class="body"><div class="leaf"><b>叶子节点</b><small>position bias、popularity bias、selection bias、Platt、isotonic、分桶校准、ECE。</small><ul><li>重点：排序公式使用的是pCTR数值，AUC高但校准差仍会导致Top1错误。</li></ul></div></div></details>
+      </div></details>
+      <details class="node lvl1"><summary>E. CVR层：从点击后转化到全空间价值估计</summary><div class="body">
+        <details class="node lvl2" open><summary>E1 标签与归因</summary><div class="body"><div class="leaf"><b>叶子节点</b><small>转化定义、转化窗口、归因规则、去重规则、多转化价值、延迟反馈。</small><ul><li>检查：先画点击到转化延迟CDF，再决定训练标签截断窗口。</li></ul></div></div></details>
+        <details class="node lvl2"><summary>E2 SSB与多任务</summary><div class="body"><div class="leaf"><b>叶子节点</b><small>CVR只在点击空间观测，排序却在曝光空间决策；ESMM、MMoE、PLE用于缓解目标缺失和任务冲突。</small><ul><li>公式：pCTCVR = pCTR × pCVR。</li></ul></div></div></details>
+      </div></details>
+      <details class="node lvl1"><summary>F. 排序决策层：把分数变成Top1 Query</summary><div class="body">
+        <details class="node lvl2" open><summary>F1 当前公式诊断</summary><div class="body"><div class="leaf"><b>叶子节点</b><small>pCTR、CPC^α、pCVR放大系数、CPC门控、Top1选择、多目标排序、相关性护栏。</small><ul><li>必须诊断：Top1/Top2分差、Top1 flip rate、门控边界样本、高CPC低相关占比。</li></ul></div></div></details>
+        <details class="node lvl2"><summary>F2 多目标扩展</summary><div class="body"><div class="leaf"><b>叶子节点</b><small>RPM、CTR、CVR、广告主ROI、用户体验、相关性、预算消耗、长期价值之间的权衡。</small><ul><li>进阶：从固定公式走向Learning to Rank、约束优化、分场景权重和策略分层。</li></ul></div></div></details>
+      </div></details>
+      <details class="node lvl1"><summary>G. 实验监控层：证明改动是真的好</summary><div class="body"><div class="leaf"><b>叶子节点</b><small>AA、AB、CUPED、分桶实验、显著性、护栏指标、badcase回流、报警面板。</small><ul><li>必须分桶：头/腰/尾query、改写来源、行业、pCTR桶、pCVR桶、CPC桶、门控状态。</li></ul></div></div></details>
+      <details class="node lvl1"><summary>H. 工程上线层：让知识变成可运行系统</summary><div class="body"><div class="leaf"><b>叶子节点</b><small>离线样本、在线特征、缓存、蒸馏、fallback、灰度、回滚、日志schema、dashboard。</small><ul><li>工程目标：任何Top1变化都能在日志里复现为“候选、分数、门控、来源、实验桶”的变化。</li></ul></div></div></details>
     </div>
   </section>
 
   <section class="panel" id="rewrite">
-    <h2 class="sec"><span class="dot"></span>Query 改写深水区：12 类 Bad Case + 从简到难做法</h2>
-    <p class="lead">Query 改写不是“把词换一下”，而是围绕候选 query 的生成、约束、召回、排序和回流建立闭环。每类 badcase 都要能落到分类、诊断、实现、进阶和指标。</p>
-    <div class="fmap">
-      <details class="frow" open><summary><span class="fbadge">QR-01</span><div><div class="ftitle">拼写/输入错误</div><div class="fsub">错别字、拼音、英文缩写、型号空格、输入法混淆。</div></div></summary><div class="fbody"><div class="chain"><div class="step"><div class="k">例子</div><div class="v">“耐克跑些”→“耐克跑鞋”；“iphone15壳子”→“iphone 15 手机壳”。</div></div><div class="step"><div class="k">分类</div><div class="v">错别字、拼音近音、键盘近邻、型号格式、新词未收录。</div></div><div class="step"><div class="k">简单做法</div><div class="v">编辑距离、拼音相似、热门 query 词典、品牌/型号白名单。</div></div><div class="step"><div class="k">进阶做法</div><div class="v">Noisy Channel、BERT/seq2seq纠错、LLM候选生成 + 实体保护过滤。</div></div><div class="step"><div class="k">指标</div><div class="v">纠错准确率、无结果率下降、坏纠错率、纠错后CTR/CVR。</div></div></div></div></details>
-      <details class="frow"><summary><span class="fbadge">QR-02</span><div><div class="ftitle">实体丢失</div><div class="fsub">品牌、型号、人群、地点等核心实体在改写后消失。</div></div></summary><div class="fbody"><div class="chain"><div class="step"><div class="k">例子</div><div class="v">“华为mate60手机壳”→“手机壳”；“耐克飞马40”→“跑鞋”。</div></div><div class="step"><div class="k">简单做法</div><div class="v">NER + 核心实体不可删除规则；品牌/型号词表保护。</div></div><div class="step"><div class="k">进阶做法</div><div class="v">entity-aware rewriting、实体链接、知识图谱约束、constrained decoding。</div></div><div class="step"><div class="k">指标</div><div class="v">实体保留率、品牌型号保留率、类目一致率、改写后CVR。</div></div></div></div></details>
-      <details class="frow"><summary><span class="fbadge">QR-03</span><div><div class="ftitle">属性丢失</div><div class="fsub">颜色、价格、功能、场景等购买约束被改写抹掉。</div></div></summary><div class="fbody"><div class="chain"><div class="step"><div class="k">例子</div><div class="v">“红色连衣裙”→“连衣裙”；“防水蓝牙耳机”→“蓝牙耳机”。</div></div><div class="step"><div class="k">做法</div><div class="v">属性词表 + slot 抽取；解析为 {品类, 品牌, 属性, 场景, 价格意图}。</div></div><div class="step"><div class="k">风险</div><div class="v">CTR 不一定降，但购买意图变弱，CVR/RPM 可能下降。</div></div></div></div></details>
-      <details class="frow"><summary><span class="fbadge">QR-04</span><div><div class="ftitle">意图漂移</div><div class="fsub">信息/购买/服务/比较意图被误改。</div></div></summary><div class="fbody"><div class="chain"><div class="step"><div class="k">例子</div><div class="v">“苹果手机维修”→“苹果手机”；“考研英语资料”→“英语培训”。</div></div><div class="step"><div class="k">做法</div><div class="v">query intent classifier、多任务意图识别、LLM意图解释、CTR/CVR联合校验。</div></div><div class="step"><div class="k">指标</div><div class="v">意图一致率、类目准确率、CVR变化、负反馈。</div></div></div></div></details>
-      <details class="frow"><summary><span class="fbadge">QR-05</span><div><div class="ftitle">类目错配 / 多义词坍缩</div><div class="fsub">多义实体被落到错误行业或品类。</div></div></summary><div class="fbody"><div class="chain"><div class="step"><div class="k">例子</div><div class="v">“苹果”手机 vs 水果；“小米”手机 vs 食品。</div></div><div class="step"><div class="k">做法</div><div class="v">query-category层级分类、query-ad co-click类目约束、上下文/历史行为消歧。</div></div><div class="step"><div class="k">指标</div><div class="v">类目一致率、跨类目召回占比、人工相关性分档。</div></div></div></div></details>
-      <details class="frow"><summary><span class="fbadge">QR-06</span><div><div class="ftitle">过度泛化</div><div class="fsub">改写变宽，召回变多，但意图被稀释。</div></div></summary><div class="fbody"><div class="chain"><div class="step"><div class="k">例子</div><div class="v">“儿童防滑运动鞋”→“鞋”。</div></div><div class="step"><div class="k">做法</div><div class="v">term importance；核心词不可删，弱修饰词可删；限制 drop term 数量。</div></div><div class="step"><div class="k">判断</div><div class="v">召回量上升但相关性/CVR下降就是过度泛化信号。</div></div></div></div></details>
-      <details class="frow"><summary><span class="fbadge">QR-07</span><div><div class="ftitle">过度具体化 / 幻觉</div><div class="fsub">模型新增用户没表达的品牌、型号或属性。</div></div></summary><div class="fbody"><div class="chain"><div class="step"><div class="k">例子</div><div class="v">“跑鞋”→“耐克男士跑鞋”。</div></div><div class="step"><div class="k">做法</div><div class="v">禁止新增品牌/型号；LLM输出做实体差分；新增实体必须有上下文证据。</div></div><div class="step"><div class="k">指标</div><div class="v">新增实体率、幻觉实体率、坏改写率。</div></div></div></div></details>
-      <details class="frow"><summary><span class="fbadge">QR-08</span><div><div class="ftitle">欠改写</div><div class="fsub">低召回/无结果 query 应该改写但没触发。</div></div></summary><div class="fbody"><div class="chain"><div class="step"><div class="k">做法</div><div class="v">无结果/低召回触发；改写必要性模型：召回数、稀疏度、历史表现、语义置信度。</div></div><div class="step"><div class="k">指标</div><div class="v">应改未改率、长尾覆盖率、no-result rate。</div></div></div></div></details>
-      <details class="frow"><summary><span class="fbadge">QR-09</span><div><div class="ftitle">过度改写</div><div class="fsub">原 query 已足够好，却被改坏。</div></div></summary><div class="fbody"><div class="chain"><div class="step"><div class="k">做法</div><div class="v">原query保留为候选；改写置信度校准；bad rewrite classifier；回退策略。</div></div><div class="step"><div class="k">指标</div><div class="v">原query胜出率、改写后负收益率、Top1/Top2分差。</div></div></div></div></details>
-      <details class="frow"><summary><span class="fbadge">QR-10</span><div><div class="ftitle">长尾口语/地区/缩写表达</div><div class="fsub">系统不理解低频但有商业意图的表达。</div></div></summary><div class="fbody"><div class="chain"><div class="step"><div class="k">简单</div><div class="v">同义词扩展、query expansion、类目模板。</div></div><div class="step"><div class="k">进阶</div><div class="v">LLM离线生成长尾同义表达、query2query graph、dense retrieval、蒸馏上线。</div></div><div class="step"><div class="k">指标</div><div class="v">长尾召回率、长尾CTR/CVR/RPM、长尾Top1变化率。</div></div></div></div></details>
-      <details class="frow"><summary><span class="fbadge">QR-11</span><div><div class="ftitle">高点击低转化</div><div class="fsub">改写后更吸睛，但购买意图变弱。</div></div></summary><div class="fbody"><div class="chain"><div class="step"><div class="k">诊断</div><div class="v">CTR升但CVR/RPM降；高CTR低CVR样本池；意图错配人工复核。</div></div><div class="step"><div class="k">做法</div><div class="v">CTR × 相关性 × CVR × 商业价值联合rerank；引入CVR护栏。</div></div></div></div></details>
-      <details class="frow"><summary><span class="fbadge">QR-12</span><div><div class="ftitle">高CPC诱导</div><div class="fsub">候选 query 因召回高CPC广告而上浮，但相关性差。</div></div></summary><div class="fbody"><div class="chain"><div class="step"><div class="k">诊断</div><div class="v">高CPC低相关Top1占比；CPC桶相关性和CVR。</div></div><div class="step"><div class="k">做法</div><div class="v">相关性门控、CPC截断/平滑、多目标排序、长期价值约束。</div></div></div></div></details>
+    <h2 class="sec"><span class="dot"></span>Query理解/改写：分类、方法、实现、进阶</h2>
+    <p class="lead">Query 改写的核心不是“换词”，而是“候选生成 + 语义约束 + 召回验证 + 排序验证 + 回流学习”。下面每类 badcase 都要能映射到可执行策略。</p>
+    <details class="frow" open><summary><span class="fbadge">QR-01</span><div><div class="ftitle">拼写/输入错误</div><div class="fsub">错别字、拼音、英文缩写、型号格式、输入法混淆。</div></div></summary><div class="fbody"><div class="chain"><div class="step"><div class="k">分类</div><div class="v">字形错误、音近错误、键盘近邻、型号空格、品牌别名、新词未收录。</div></div><div class="step"><div class="k">简单做法</div><div class="v">编辑距离、拼音相似、热门query词典、品牌/型号白名单。</div></div><div class="step"><div class="k">进阶做法</div><div class="v">Noisy Channel、seq2seq纠错、BERT纠错、LLM候选生成 + 实体保护过滤。</div></div><div class="step"><div class="k">效果提升</div><div class="v">只在低召回/无结果/低置信query触发；保留原query作为候选；按行业维护白名单。</div></div><div class="step"><div class="k">指标</div><div class="v">纠错准确率、无结果率下降、坏纠错率、纠错后CTR/CVR/RPM。</div></div></div></div></details>
+    <details class="frow"><summary><span class="fbadge">QR-02</span><div><div class="ftitle">实体丢失</div><div class="fsub">品牌、型号、地点、人群等核心实体被改没。</div></div></summary><div class="fbody"><div class="chain"><div class="step"><div class="k">例子</div><div class="v">“华为mate60手机壳”→“手机壳”；“耐克飞马40”→“跑鞋”。</div></div><div class="step"><div class="k">实现</div><div class="v">NER抽取核心实体，建立不可删除规则；实体差分检查；实体链接到品牌/型号库。</div></div><div class="step"><div class="k">进阶</div><div class="v">entity-aware rewriting、知识图谱约束、constrained decoding、实体保留reward。</div></div><div class="step"><div class="k">指标</div><div class="v">实体保留率、品牌型号保留率、类目一致率、改写后CVR/RPM。</div></div></div></div></details>
+    <details class="frow"><summary><span class="fbadge">QR-03</span><div><div class="ftitle">属性丢失</div><div class="fsub">颜色、价格、尺寸、功能、场景约束被抹掉。</div></div></summary><div class="fbody"><div class="chain"><div class="step"><div class="k">实现</div><div class="v">slot抽取为{品类,品牌,型号,属性,场景,价格,意图}；核心slot不可删，弱slot可降权。</div></div><div class="step"><div class="k">判断</div><div class="v">CTR可能上升但CVR下降，说明变泛后更吸睛但购买约束变弱。</div></div></div></div></details>
+    <details class="frow"><summary><span class="fbadge">QR-04</span><div><div class="ftitle">意图漂移</div><div class="fsub">购买/维修/信息/招聘/招商/下载等意图被误改。</div></div></summary><div class="fbody"><div class="chain"><div class="step"><div class="k">实现</div><div class="v">意图分类器 + LLM解释 + 人工标注少量高价值样本；改写前后意图必须一致或可解释。</div></div><div class="step"><div class="k">指标</div><div class="v">意图一致率、类目准确率、CVR变化、负反馈、人工相关性。</div></div></div></div></details>
+    <details class="frow"><summary><span class="fbadge">QR-05~12</span><div><div class="ftitle">其他高频Bad Case</div><div class="fsub">类目错配、过度泛化、幻觉、欠改写、过度改写、长尾口语、高点击低转化、高CPC诱导。</div></div></summary><div class="fbody"><table class="matrix"><tr><td>类目错配</td><td>query-category分类 + co-click类目约束 + 上下文消歧，防止“苹果”手机/水果混淆。</td></tr><tr><td>过度泛化</td><td>term importance、核心词不可删、召回量上升但CVR/相关性下降时回滚。</td></tr><tr><td>过度具体化/幻觉</td><td>禁止新增品牌/型号；LLM输出做实体差分；新增实体必须有证据。</td></tr><tr><td>欠改写</td><td>低召回/无结果/低置信触发；训练“是否需要改写”模型。</td></tr><tr><td>过度改写</td><td>原query保留候选；改写置信度校准；bad rewrite classifier；fallback。</td></tr><tr><td>长尾口语</td><td>LLM离线生成长尾表达、query2query graph、dense retrieval、蒸馏上线。</td></tr><tr><td>高点击低转化</td><td>CTR升但CVR/RPM降时，加入CVR护栏和购买意图一致性约束。</td></tr><tr><td>高CPC诱导</td><td>高CPC低相关Top1占比监控；相关性门控、CPC截断/平滑、多目标约束。</td></tr></table></div></details>
+    <div class="callout"><b>从简到难路线：</b>规则词典 → query log统计共现 → query-ad graph → 向量召回/双塔 → T5/BART生成式改写 → LLM离线生成 + 约束过滤 + rerank + 小模型蒸馏 + 缓存上线。</div>
+  </section>
+
+  <section class="panel" id="retrieval">
+    <h2 class="sec"><span class="dot"></span>召回与候选：改写后的Query必须召回得好</h2>
+    <div class="grid g3">
+      <div class="card"><h3>倒排召回</h3><p>适合精确词、品牌型号、强约束query。重点看分词、同义词、term权重和无结果率。</p></div>
+      <div class="card"><h3>向量召回</h3><p>适合长尾语义、口语表达、同义意图。重点防止语义近但商业意图错。</p></div>
+      <div class="card"><h3>图召回</h3><p>query-ad、query-query、user-query图能补商业关联。重点看噪声边、时间衰减和行业隔离。</p></div>
     </div>
-    <div class="callout"><b>进阶路线：</b>规则词典 → 统计共现/query log → 语义向量/双塔 → 生成式改写 → LLM离线生成 + 约束过滤 + rerank + 蒸馏/缓存上线。这最后一层最适合你当前“工具成熟但线上架构受限”的环境。</div>
+    <table class="matrix"><tr><td>候选打标</td><td>每个候选query必须记录来源、触发原因、置信度、实体保留率、类目一致性、召回量、召回广告相关性。</td></tr><tr><td>多路融合</td><td>不要只合并召回结果，要按query类型、意图、长尾程度、历史表现动态调权。</td></tr><tr><td>诊断指标</td><td>召回量、有效召回率、人工相关广告占比、长尾覆盖率、召回latency、候选多样性。</td></tr></table>
   </section>
 
   <section class="panel" id="ctrcvr">
-    <h2 class="sec"><span class="dot"></span>CTR/CVR：从模型名下钻到可信分数</h2>
-    <div class="grid g2">
-      <div class="card"><h3>CTR六层</h3><p>特征层：用户/广告/query/上下文/交叉；模型层：LR/FM/DeepFM/DCN/DIN/DIEN/SIM；Bias层：position/popularity/selection；校准层：Platt/isotonic/分桶；长尾冷启层：平滑/语义/探索；评估层：AUC/GAUC/LogLoss/ECE/线上CTR。</p></div>
-      <div class="card"><h3>CVR五层</h3><p>标签口径：转化定义、窗口、归因、去重；SSB：点击空间训练、曝光空间预测；延迟反馈：假负样本；多任务：ESMM/MMoE/PLE；排序关系：pCVR进入公式后会放大校准误差。</p></div>
-    </div>
-    <h2 class="sec"><span class="dot"></span>CTR微观检查表</h2>
-    <table class="matrix">
-      <tr><td>用户特征</td><td>长期兴趣、短期意图、搜索/点击/购买序列、活跃度。检查事件时间、窗口、在线可得性，避免行为穿越。</td></tr>
-      <tr><td>广告特征</td><td>广告主、行业、标题、落地页、历史CTR/CVR、CPC、预算状态。统计特征必须时间切分和贝叶斯平滑。</td></tr>
-      <tr><td>交叉特征</td><td>query × ad、user × ad、query × category、user interest × query intent。先做可解释交叉，再上复杂模型。</td></tr>
-      <tr><td>序列建模</td><td>DIN适合从老模型升一代；DIEN建兴趣演化；SIM/ETA处理长序列。工程上要考虑截断、缓存、latency。</td></tr>
-      <tr><td>校准</td><td>pCTR进入商业公式，整体校准好不够，要看长尾query、高CPC桶、新广告桶、改写来源桶。</td></tr>
-    </table>
-    <h2 class="sec"><span class="dot"></span>CVR微观检查表</h2>
-    <table class="matrix">
-      <tr><td>标签口径</td><td>转化是什么：下单/留资/激活/付费/咨询？窗口是1h/24h/7d？多次转化怎么记？归因给哪个query？</td></tr>
-      <tr><td>SSB</td><td>CVR只在点击样本可观测，但线上要对曝光候选预测。ESMM用曝光全空间学习CTR和CTCVR，缓解样本选择偏差。</td></tr>
-      <tr><td>延迟反馈</td><td>点击后很久才转化。先画点击到转化延迟CDF，再决定等待窗口、重标注、delayed feedback model。</td></tr>
-      <tr><td>多任务冲突</td><td>CTR偏即时兴趣，CVR偏购买意愿。MMoE/PLE用共享与任务私有expert处理目标冲突。</td></tr>
-      <tr><td>长尾价值</td><td>长尾query CTR低不等于没价值，可能购买意图强、CVR/RPM高。必须单独建桶评估。</td></tr>
-    </table>
+    <h2 class="sec"><span class="dot"></span>CTR/CVR：你要学的是可信分数体系</h2>
+    <div class="split"><div><h2 class="sec"><span class="dot"></span>CTR技术树</h2><table class="matrix"><tr><td>样本</td><td>曝光、点击、负样本采样、时间切分、去重、反作弊。</td></tr><tr><td>特征</td><td>用户、广告、query、上下文、统计、交叉、序列、实时特征。</td></tr><tr><td>模型</td><td>LR/GBDT+LR/FM/DeepFM/DCN/DIN/DIEN/SIM，先理解每代解决什么问题。</td></tr><tr><td>Bias</td><td>position bias、popularity bias、selection bias；需要分桶和反事实思想。</td></tr><tr><td>校准</td><td>Platt、isotonic、分桶校准、ECE；排序公式里校准比单纯AUC更关键。</td></tr></table></div><div><h2 class="sec"><span class="dot"></span>CVR技术树</h2><table class="matrix"><tr><td>标签口径</td><td>转化定义、窗口、归因、去重、多转化处理。</td></tr><tr><td>SSB</td><td>点击空间训练，曝光空间预测；ESMM用CTR和CTCVR缓解。</td></tr><tr><td>延迟反馈</td><td>转化滞后导致假负样本；先画点击到转化延迟CDF。</td></tr><tr><td>多任务</td><td>ESMM、MMoE、PLE处理CTR/CVR目标关联与冲突。</td></tr><tr><td>排序影响</td><td>pCVR被(1+10×pCVR)放大，校准误差会直接改变Top1。</td></tr></table></div></div>
+    <div class="callout"><b>重要判断：</b>长尾 query CTR 低不一定没价值，可能购买意图强、CVR/RPM高。要把长尾桶单独拿出来看，不能让头部query均值掩盖它。</div>
   </section>
 
   <section class="panel" id="ranking">
-    <h2 class="sec"><span class="dot"></span>排序公式：当前业务的最好学习入口</h2>
-    <div class="formula"><div class="expr">CPC门控通过：Score = pCTR × CPC<sup>α</sup> × (1 + 10 × pCVR)</div><div class="expr">CPC门控不通过：Score = pCTR × CPC<sup>α</sup></div><div class="note">按 Score 降序取 Top1 作为最优 query。公式不是终点，而是可诊断、可实验、可解释的目标函数原型。</div></div>
-    <div class="grid g2">
-      <div class="card"><h3>pCTR</h3><p>问题：是否校准？是否高估头部/低估长尾？是否受position/popularity bias污染？诊断：按query头腰尾、改写类型、CPC桶画校准曲线。</p></div>
-      <div class="card"><h3>CPC<sup>α</sup></h3><p>α是商业价值权重。α越大，高CPC候选越容易上浮。做α sweep：0、0.25、0.5、0.75、1.0，观察Top1 flip和高CPC低相关占比。</p></div>
-      <div class="card"><h3>1 + 10 × pCVR</h3><p>10是人为放大系数。做系数 sweep：0、2、5、10、20。如果pCVR未校准，系数越大，错误越被放大。</p></div>
-      <div class="card"><h3>CPC门控 + Top1</h3><p>硬门控会有边界不连续；Top1会放大模型误差。看门控阈值附近样本、Top1/Top2分差、Top1来源分布和Top1 flip rate。</p></div>
-    </div>
-    <h2 class="sec"><span class="dot"></span>三张必须有的诊断表</h2>
-    <table class="matrix">
-      <tr><td>Top1归因表</td><td>每条候选query列出 pCTR、pCVR、CPC、门控、Score、来源、实体保留率、召回数、人工相关性，解释为什么Top1胜出。</td></tr>
-      <tr><td>Top1 Flip表</td><td>比较不同α、CVR系数、门控开关下Top1变化，定位策略最敏感样本。</td></tr>
-      <tr><td>分桶收益表</td><td>按query头/腰/尾、CPC桶、pCVR桶、改写类型桶看CTR/CVR/RPM/相关性，不让整体均值掩盖问题。</td></tr>
-    </table>
+    <h2 class="sec"><span class="dot"></span>排序公式：把技术树压缩成一个可诊断目标函数</h2>
+    <div class="formula"><div class="expr">CPC门控通过：Score = pCTR × CPC<sup>α</sup> × (1 + 10 × pCVR)</div><div class="expr">CPC门控不通过：Score = pCTR × CPC<sup>α</sup></div><div class="note">按 Score 降序取 Top1 作为最优 query。这个公式是学习入口，不是终点。</div></div>
+    <div class="grid g4"><div class="card"><h3>pCTR</h3><p>点击概率。重点看校准、长尾低估、position/popularity bias。</p></div><div class="card"><h3>CPC^α</h3><p>商业价值权重。α越大，高CPC候选越容易上浮。</p></div><div class="card"><h3>1+10×pCVR</h3><p>转化价值放大器。pCVR不准时错误会被放大。</p></div><div class="card"><h3>门控/Top1</h3><p>硬门控和Top1都会放大边界误差和排序抖动。</p></div></div>
+    <table class="matrix"><tr><td>α sweep</td><td>测试0、0.25、0.5、0.75、1.0，观察Top1 flip、高CPC低相关、RPM/CVR变化。</td></tr><tr><td>CVR系数 sweep</td><td>测试0、2、5、10、20，观察pCVR校准误差被放大后的Top1变化。</td></tr><tr><td>门控阈值</td><td>重点看阈值附近样本，硬门控是否导致候选突然失去CVR加成。</td></tr><tr><td>Top1诊断</td><td>每次实验必须输出Top1归因表、Top1/Top2分差、Top1来源分布。</td></tr></table>
   </section>
 
   <section class="panel" id="badcase">
-    <h2 class="sec"><span class="dot"></span>以点带面：长尾商业 Query 优化代表作</h2>
-    <p class="lead">如果只选一个最有价值的代表项目，建议选“长尾商业 query 的 Query 优选优化”。它天然串起 Query 改写、召回、CTR、CVR、排序、门控、AB 和业务表达。</p>
-    <div class="chain">
-      <div class="step"><div class="k">现象</div><div class="v">长尾 query CTR 低、召回少，经常不成为 Top1，但人工看购买意图很强。</div></div>
-      <div class="step"><div class="k">拆解</div><div class="v">可能是长尾漏召、pCTR低估、pCVR样本少低估、CPC门控误杀、Top1被高CPC泛query抢走。</div></div>
-      <div class="step"><div class="k">技术链</div><div class="v">LLM离线改写补召回 → 相关性/实体过滤 → pCTR/pCVR分桶校准 → CVR/CTCVR识别购买意图 → 排序公式门控/权重调整。</div></div>
-      <div class="step"><div class="k">实验链</div><div class="v">目标桶：长尾商业query；主指标：CVR/RPM；护栏：CTR/相关性/负反馈/latency；诊断：Top1变化率、门控通过率、校准曲线。</div></div>
-      <div class="step"><div class="k">简历表达</div><div class="v">定位长尾query在召回、pCTR/pCVR估计和排序门控上的系统性低估，通过改写补召回、CVR校准、排序策略调整和AB实验完成闭环。</div></div>
-    </div>
-    <h2 class="sec"><span class="dot"></span>Bad Case归因模板</h2>
-    <table class="matrix">
-      <tr><td>输入字段</td><td>原query、候选query、Top1 query、pCTR、pCVR、CPC、门控、Score、来源、召回数、人工相关性、点击/转化。</td></tr>
-      <tr><td>一阶归因</td><td>Query问题、召回问题、CTR问题、CVR问题、CPC/门控问题、Top1强决策问题、数据口径问题。</td></tr>
-      <tr><td>二阶归因</td><td>实体丢失、属性丢失、意图漂移、长尾漏召、pCTR虚高、pCVR低估、硬门控抖动、高CPC诱导。</td></tr>
-      <tr><td>输出动作</td><td>补规则、改样本、加约束、校准模型、改门控、做AB、补监控、沉淀案例库。</td></tr>
-    </table>
+    <h2 class="sec"><span class="dot"></span>Bad Case归因：以点带面牵出完整体系</h2>
+    <p class="lead">一个好的 badcase 不是“这个改错了”，而是能一路追到 Query、召回、CTR、CVR、CPC、门控、Top1 和日志口径中的具体责任点。</p>
+    <table class="matrix"><tr><td>输入字段</td><td>原query、候选query、Top1、pCTR、pCVR、CPC、门控、Score、来源、召回数、人工相关性、点击/转化。</td></tr><tr><td>一阶归因</td><td>Query理解、Query改写、召回、CTR、CVR、CPC/门控、排序公式、实验口径。</td></tr><tr><td>二阶归因</td><td>实体丢失、属性丢失、意图漂移、长尾漏召、pCTR低估、pCVR低估、硬门控抖动、高CPC诱导。</td></tr><tr><td>输出动作</td><td>补规则、补样本、改候选生成、加约束、校准模型、改门控、做AB、补监控。</td></tr></table>
+    <h2 class="sec"><span class="dot"></span>代表项目：长尾商业 Query 优化</h2>
+    <div class="chain"><div class="step"><div class="k">现象</div><div class="v">长尾 query CTR低、召回少，经常不成为Top1，但人工看购买意图强。</div></div><div class="step"><div class="k">拆解</div><div class="v">长尾漏召、pCTR低估、pCVR样本少低估、CPC门控误杀、Top1被高CPC泛query抢走。</div></div><div class="step"><div class="k">技术链</div><div class="v">LLM离线改写补召回 → 相关性/实体过滤 → pCTR/pCVR分桶校准 → 排序公式门控/权重调整。</div></div><div class="step"><div class="k">实验链</div><div class="v">目标桶：长尾商业query；主指标：CVR/RPM；护栏：CTR/相关性/负反馈/latency。</div></div><div class="step"><div class="k">沉淀</div><div class="v">形成badcase归因、样本构造、模型/策略干预、监控、AB、复盘的完整闭环。</div></div></div>
   </section>
 
   <section class="panel" id="experiment">
-    <h2 class="sec"><span class="dot"></span>实验、监控与质量门禁</h2>
-    <div class="grid g3">
-      <div class="card"><h3>模型监控</h3><p>pCTR/pCVR分桶校准、漂移、长尾桶、高CPC桶、行业桶、改写来源桶。</p></div>
-      <div class="card"><h3>改写监控</h3><p>改写触发率、覆盖率、坏改写率、实体保留率、类目一致率、无结果率下降、召回数变化。</p></div>
-      <div class="card"><h3>排序监控</h3><p>门控通过率、Top1来源分布、Top1/Top2分差、Top1 flip rate、高CPC低相关占比。</p></div>
-    </div>
+    <h2 class="sec"><span class="dot"></span>实验监控：从“感觉变好”到“证明变好”</h2>
+    <div class="grid g3"><div class="card"><h3>模型监控</h3><p>pCTR/pCVR分桶校准、漂移、长尾桶、高CPC桶、行业桶、改写来源桶。</p></div><div class="card"><h3>改写监控</h3><p>触发率、覆盖率、坏改写率、实体保留率、类目一致率、无结果率下降。</p></div><div class="card"><h3>排序监控</h3><p>门控通过率、Top1来源分布、Top1/Top2分差、Top1 flip、高CPC低相关占比。</p></div></div>
     <h2 class="sec"><span class="dot"></span>AB实验模板</h2>
-    <table class="matrix">
-      <tr><td>假设</td><td>某类长尾query因为pCVR低估，导致高转化候选没有成为Top1。</td></tr>
-      <tr><td>样本</td><td>长尾商业query，过去7/14/30天曝光超过X，点击少但转化意图强。</td></tr>
-      <tr><td>干预</td><td>LLM改写补召回 + pCVR校准 + 门控策略调整 + 相关性约束。</td></tr>
-      <tr><td>主指标</td><td>CVR、RPM、CTCVR、目标桶收益。</td></tr>
-      <tr><td>护栏指标</td><td>CTR、相关性、负反馈、latency、fallback rate。</td></tr>
-      <tr><td>诊断指标</td><td>Top1变化率、门控通过率、pCTR/pCVR分桶校准、长尾覆盖率、Top1/Top2分差。</td></tr>
-      <tr><td>判断标准</td><td>整体不劣化，目标桶显著提升，护栏不下降，且badcase样本人工复核通过。</td></tr>
-    </table>
-    <div class="callout"><b>质量门禁：</b>任何策略上线前必须能回答：影响哪些query桶？Top1变化了谁？pCTR/pCVR是否校准？CPC门控是否带来边界抖动？相关性和负反馈是否可控？</div>
+    <table class="matrix"><tr><td>假设</td><td>某类长尾query因pCVR低估或漏召，导致高转化候选没有成为Top1。</td></tr><tr><td>样本</td><td>长尾商业query，过去7/14/30天曝光超过X，点击少但人工购买意图强。</td></tr><tr><td>干预</td><td>LLM改写补召回 + pCVR校准 + 门控策略调整 + 相关性约束。</td></tr><tr><td>主指标</td><td>CVR、RPM、CTCVR、目标桶收益。</td></tr><tr><td>护栏</td><td>CTR、相关性、负反馈、latency、fallback rate。</td></tr><tr><td>诊断</td><td>Top1变化率、门控通过率、校准曲线、长尾覆盖率、Top1/Top2分差。</td></tr></table>
   </section>
 
   <section class="panel" id="papers">
-    <h2 class="sec"><span class="dot"></span>论文/业界方法地图：知道每个方向该往哪学</h2>
-    <table class="matrix">
-      <tr><td>Query纠错/改写</td><td>Noisy Channel Model、BM25/PRF、Learning to Rewrite、Session Reformulation、T5/BART/LLM Query Rewriting。重点学：从规则到生成式，再到约束和蒸馏。</td></tr>
-      <tr><td>语义召回/匹配</td><td>DSSM、双塔召回、BERT matching、ColBERT、ANN向量检索、query-ad graph。重点学：语义相似不等于商业意图一致。</td></tr>
-      <tr><td>CTR模型</td><td>LR+GBDT、FM/FFM、Wide&Deep、DeepFM、DCN/DCNv2、xDeepFM、DIN、DIEN、SIM/ETA。重点学：你从CNN升级的现实落点是DeepFM/DCN/DIN。</td></tr>
-      <tr><td>CVR/多任务</td><td>ESMM、MMoE、PLE、Delayed Feedback Modeling、Entire Space Multi-task Model。重点学：CVR的样本选择偏差和延迟反馈。</td></tr>
-      <tr><td>Bias/校准</td><td>Position Bias、PBM/Cascade Model、PAL、IPW、Doubly Robust、Platt Scaling、Isotonic Regression。重点学：广告分数进入排序公式，数值必须可信。</td></tr>
-      <tr><td>排序/多目标</td><td>Learning to Rank、LambdaMART、Multi-objective Ranking、Counterfactual LTR、Thompson Sampling/UCB。重点学：CTR/CVR/RPM/体验不是单目标问题。</td></tr>
-    </table>
+    <h2 class="sec"><span class="dot"></span>论文/业界方法地图：知道每个方向往哪学</h2>
+    <table class="matrix"><tr><td>Query纠错/改写</td><td>Noisy Channel、BM25/PRF、Learning to Rewrite、Session Reformulation、T5/BART/LLM Query Rewriting。</td></tr><tr><td>语义召回/匹配</td><td>DSSM、双塔、BERT Matching、ColBERT、ANN、query-ad graph。重点：语义相似不等于商业意图一致。</td></tr><tr><td>CTR模型</td><td>LR+GBDT、FM/FFM、Wide&Deep、DeepFM、DCN/DCNv2、xDeepFM、DIN、DIEN、SIM/ETA。</td></tr><tr><td>CVR/多任务</td><td>ESMM、MMoE、PLE、Delayed Feedback、Entire Space Multi-task Model。</td></tr><tr><td>Bias/校准</td><td>Position Bias、PBM/Cascade、PAL、IPW、Doubly Robust、Platt、Isotonic。</td></tr><tr><td>排序/多目标</td><td>Learning to Rank、LambdaMART、Multi-objective Ranking、Counterfactual LTR、UCB/Thompson Sampling。</td></tr></table>
   </section>
 
   <section class="panel" id="roadmap">
-    <h2 class="sec"><span class="dot"></span>成长 Roadmap：恢复“人如何成长”的主线</h2>
-    <div class="phase"><div class="ph"><h3>阶段0：摸底与定切口</h3><span class="when">第1-2周</span></div><ul><li>画两张图：Query改写链路图、排序公式数据流图。</li><li>捞300-500条badcase，按Query/召回/CTR/CVR/排序/口径六类归因。</li><li>建立第一版Top1归因表：原query、候选query、Top1、pCTR、pCVR、CPC、门控、Score、来源、人工相关性、点击/转化。</li></ul><div class="deliver"><b>交付物：</b>《Query优选链路现状 + Bad Case分类报告》。</div></div>
-    <div class="phase"><div class="ph"><h3>阶段1：打穿Query改写闭环</h3><span class="when">第1-3月</span></div><ul><li>选一个小切口：长尾有商业意图但漏召、品牌型号被改丢、高CTR低CVR意图漂移。</li><li>用LLM/SFT平台生成候选，但评估必须看召回、相关性、pCTR、pCVR、Top1变化。</li><li>建立实体保留、类目一致、置信度、相关性阈值过滤；通过缓存/蒸馏/规则兜底上线。</li></ul><div class="deliver"><b>交付物：</b>上线的Query改写优化模块 + “改写前后Top1变化与CTR/CVR/RPM影响”实验报告。</div></div>
-    <div class="phase"><div class="ph"><h3>阶段2：CTR/CVR可信度建设</h3><span class="when">第4-6月</span></div><ul><li>pCTR：分桶校准、position bias/popularity bias诊断、CNN→DeepFM/DIN升级可行性。</li><li>pCVR：明确标签口径，拉转化延迟分布，诊断点击空间/曝光空间差异，评估ESMM。</li><li>排序侧：看校准前后Top1变化，尤其关注长尾低CTR高CVR/RPM样本。</li></ul><div class="deliver"><b>交付物：</b>《pCTR/pCVR校准与偏差诊断报告》+《CTR/CVR多任务建模升级方案》。</div></div>
-    <div class="phase"><div class="ph"><h3>阶段3：排序策略与多目标优化</h3><span class="when">第7-9月</span></div><ul><li>做α、CVR系数、CPC门控阈值的离线重放和小流量AB。</li><li>分析Top1 flip样本：哪些query因为高CPC/pCVR/门控成为Top1？是否符合业务直觉？</li><li>补相关性约束和门控平滑，防止短期收入优化伤害长期转化和体验。</li></ul><div class="deliver"><b>交付物：</b>《Query优选排序公式诊断报告》+ 一个排序策略AB。</div></div>
-    <div class="phase"><div class="ph"><h3>阶段4：端到端代表作</h3><span class="when">第9-12月</span></div><ul><li>建议主攻“长尾商业query优化”：从长尾漏召、pCTR/pCVR低估、CPC门控误杀到AB闭环。</li><li>沉淀一套可复用方法：badcase归因 → 样本构造 → 模型/策略干预 → 监控 → AB → 复盘。</li><li>形成能对外讲的项目故事：不是做了模型，而是改变了Query优选系统最终决策。</li></ul><div class="deliver"><b>交付物：</b>一个能写进简历/晋升材料的端到端项目。</div></div>
-    <div class="phase"><div class="ph"><h3>阶段5：避开中间层陷阱</h3><span class="when">第12-24月</span></div><ul><li>70%砸硬技术：CTR/CVR多任务、Bias/Calibration、IR/Query Understanding、LLM可控生成与蒸馏、AB与因果。</li><li>30%做业务差异化：广告主价值、用户体验、长尾商业价值、CPC/预算/转化链路、非技术表达。</li><li>判断环境是否值得：能否拿日志、做AB、改策略、上线特征/小模型、让技术沉淀被认可。</li></ul><div class="redline"><b>退出红线：</b>如果你只能改参数、拿不到日志/实验/模型诊断权限，这个环境不支持形成核心能力，应准备换组或换平台。</div></div>
+    <h2 class="sec"><span class="dot"></span>成长 Roadmap：围绕知识体系树逐层打穿</h2>
+    <div class="phase"><div class="ph"><h3>阶段0：摸底与定切口</h3><span class="when">第1-2周</span></div><ul><li>画Query优选全链路图和排序公式数据流图。</li><li>捞300-500条badcase，按Query/召回/CTR/CVR/排序/口径归因。</li><li>建立Top1归因表。</li></ul><div class="deliver"><b>交付物：</b>《Query优选链路现状 + Bad Case分类报告》。</div></div>
+    <div class="phase"><div class="ph"><h3>阶段1：打穿Query改写闭环</h3><span class="when">第1-3月</span></div><ul><li>选长尾漏召、品牌型号丢失、意图漂移中的一个切口。</li><li>用LLM/SFT生成候选，但用召回、相关性、pCTR、pCVR、Top1变化评估。</li><li>上线实体保留、类目一致、置信度和相关性过滤。</li></ul><div class="deliver"><b>交付物：</b>改写优化模块 + 改写前后Top1/CTR/CVR/RPM实验报告。</div></div>
+    <div class="phase"><div class="ph"><h3>阶段2：CTR/CVR可信度建设</h3><span class="when">第4-6月</span></div><ul><li>pCTR分桶校准和bias诊断。</li><li>pCVR明确转化口径、延迟分布、SSB问题，评估ESMM。</li><li>看校准前后Top1变化。</li></ul><div class="deliver"><b>交付物：</b>《pCTR/pCVR校准与偏差诊断报告》。</div></div>
+    <div class="phase"><div class="ph"><h3>阶段3：排序策略与多目标优化</h3><span class="when">第7-9月</span></div><ul><li>做α、CVR系数、CPC门控阈值离线重放和小流量AB。</li><li>分析Top1 flip样本。</li><li>补相关性约束和门控平滑。</li></ul><div class="deliver"><b>交付物：</b>《Query优选排序公式诊断报告》+ 一个排序策略AB。</div></div>
+    <div class="phase"><div class="ph"><h3>阶段4：端到端代表作</h3><span class="when">第9-12月</span></div><ul><li>主攻长尾商业query优化。</li><li>沉淀badcase归因 → 样本构造 → 模型/策略干预 → 监控 → AB → 复盘。</li><li>形成能写进简历/晋升材料的系统项目。</li></ul><div class="deliver"><b>交付物：</b>端到端代表项目。</div></div>
+    <div class="phase"><div class="ph"><h3>阶段5：避开中间层陷阱</h3><span class="when">第12-24月</span></div><ul><li>70%硬技术：CTR/CVR多任务、Bias/Calibration、IR/Query Understanding、LLM可控生成与蒸馏、AB与因果。</li><li>30%业务差异化：广告主价值、用户体验、长尾商业价值、CPC/预算/转化链路、非技术表达。</li><li>若长期拿不到日志、实验、策略权限，要考虑换组或换平台。</li></ul></div>
   </section>
 
-  <div class="foot"><span>广告算法成长作战图 · Query改写 + CTR/CVR + Query优选排序</span><span>建议月度复盘：Top1归因、pCTR/pCVR校准、长尾桶收益、排序参数敏感性</span></div>
+  <section class="panel" id="workbench">
+    <h2 class="sec"><span class="dot"></span>项目工作台：把知识树落到当前业务</h2>
+    <p class="lead">这一页最终要服务你的真实工作：不是背概念，而是把每个问题转成可验证项目、可复盘表格和可汇报结论。</p>
+    <div class="grid g3">
+      <div class="card"><h3>Top1归因表</h3><p>字段：原query、候选query、来源、pCTR、pCVR、CPC、门控、Score、Top1/Top2分差、点击、转化、人工相关性。</p><span class="tag green">优先级最高</span></div>
+      <div class="card"><h3>Badcase评估集</h3><p>按实体丢失、属性丢失、意图漂移、类目错配、过度泛化、长尾漏召、高CPC诱导分层抽样。</p><span class="tag amber">持续迭代</span></div>
+      <div class="card"><h3>分桶监控面板</h3><p>按头腰尾query、行业、改写来源、pCTR桶、pCVR桶、CPC桶、门控状态拆CTR/CVR/RPM。</p><span class="tag blue">实验必备</span></div>
+    </div>
+    <h2 class="sec"><span class="dot"></span>三类最值得做成代表作的项目</h2>
+    <table class="matrix"><tr><td>长尾商业Query优化</td><td>从低召回/低点击但高购买意图query切入，串起LLM改写、召回、pCTR/pCVR校准、门控与AB。</td></tr><tr><td>pCVR可信度建设</td><td>统一转化口径、分析延迟反馈、诊断SSB，评估ESMM/MMoE/PLE，并量化对Top1选择的影响。</td></tr><tr><td>排序公式诊断器</td><td>离线重放α、CVR系数、门控阈值，输出Top1 flip样本与业务收益/风险分解。</td></tr></table>
+    <div class="callout"><b>汇报语言：</b>少说“我用了某模型”，多说“我定位到某类query在某个分桶因某个分数/门控问题被系统性低估，并用可控策略把Top1选择、CVR/RPM和护栏指标同时验证清楚”。</div>
+  </section>
+
+  <section class="panel" id="validation">
+    <h2 class="sec"><span class="dot"></span>多轮验证：本页是否符合你的目标</h2>
+    <div class="quality"><h3>第1轮：结构完整性</h3><ul class="checklist"><li><span class="pass">Pass</span> 恢复“知识体系树”，并覆盖 Query理解、改写、召回、CTR、CVR、排序、实验、工程。</li><li><span class="pass">Pass</span> 每个模块能挂回业务公式和Top1决策。</li></ul></div>
+    <div class="quality"><h3>第2轮：细粒度</h3><ul class="checklist"><li><span class="pass">Pass</span> Query改写包含badcase分类、简单做法、进阶做法、实现和指标。</li><li><span class="pass">Pass</span> CTR/CVR不只列模型名，而下钻到样本、特征、bias、校准、SSB、延迟反馈。</li></ul></div>
+    <div class="quality"><h3>第3轮：成长与项目化</h3><ul class="checklist"><li><span class="pass">Pass</span> Roadmap按阶段给出切口、动作、交付物。</li><li><span class="pass">Pass</span> 保留“当前资源武器化”和“长尾商业Query代表作”。</li><li><span class="pass">Pass</span> 新增项目工作台，把Top1归因表、Badcase评估集、分桶监控面板作为可落地抓手。</li></ul></div>
+    <div class="quality"><h3>第4轮：是否避免“速查页化”</h3><ul class="checklist"><li><span class="pass">Pass</span> 页面先给完整树，再给专题下钻、项目化路径和验证门禁。</li><li><span class="pass">Pass</span> 每个方向都尽量连接到概念、方法、指标、坑、进阶和当前业务公式。</li></ul></div>
+    <div class="quality"><h3>仍可继续扩展</h3><ul class="checklist"><li><span class="warn">Next</span> 后续可以把每个叶子节点拆成独立页面，例如“CVR延迟反馈专题”“Top1归因表模板”“Query改写评估集构建”。</li><li><span class="warn">Next</span> 可以补真实表结构/SQL/可视化dashboard模板，让页面从知识框架进一步变成工作台。</li></ul></div>
+  </section>
+
+  <div class="foot"><span>广告算法知识体系树 · Query改写 + CTR/CVR + Query优选排序</span><span>复盘主线：知识树 → Badcase → 指标 → 实验 → Roadmap</span></div>
 </div>
 <script>
 (function(){var tabs=document.querySelectorAll('.tab');var panels=document.querySelectorAll('.panel');tabs.forEach(function(t){t.addEventListener('click',function(){var id=t.getAttribute('data-t');tabs.forEach(function(x){x.classList.toggle('active',x===t)});panels.forEach(function(p){p.classList.toggle('active',p.id===id)});window.scrollTo({top:0,behavior:'smooth'});});});})();

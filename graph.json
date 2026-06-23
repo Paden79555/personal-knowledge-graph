@@ -266,14 +266,14 @@
     },
     {
       "id": "ad-algorithm",
-      "title": "广告算法成长作战图",
+      "title": "广告算法知识体系树",
       "type": "framework",
       "domain": "engineering",
       "level": 3,
       "status": "active",
       "url": "pages/ad-algorithm/query-rewrite-ctr-knowledge-system.html",
-      "summary": "面向广告算法工程师的作战型知识体系，覆盖Query理解/改写、召回、CTR/CVR、Query优选排序公式、实验监控、Bad Case归因、论文方法地图与成长Roadmap。",
-      "tags": ["ad", "query-rewrite", "ctr", "cvr", "ranking", "experiment", "monitoring", "roadmap"]
+      "summary": "面向广告算法工程师的完整技术知识体系树，覆盖Query理解/改写、召回、CTR/CVR、Query优选排序、实验监控、Bad Case归因、工程上线、项目工作台与成长Roadmap。",
+      "tags": ["ad", "knowledge-tree", "query-rewrite", "ctr", "cvr", "ranking", "experiment", "roadmap"]
     }
   ],
   "edges": [
