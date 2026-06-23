@@ -266,14 +266,14 @@
     },
     {
       "id": "ad-algorithm",
-      "title": "广告算法·Query改写、CTR/CVR与排序策略",
+      "title": "广告算法成长作战图",
       "type": "framework",
       "domain": "engineering",
       "level": 3,
       "status": "active",
       "url": "pages/ad-algorithm/query-rewrite-ctr-knowledge-system.html",
-      "summary": "覆盖Query改写、CTR/CVR预估与Query优选排序公式的完整知识体系，拆解pCTR、pCVR、CPC、门控、Top1选择、Bad Case归因与实验路线。",
-      "tags": ["ad", "ctr", "cvr", "query-rewrite", "ranking"]
+      "summary": "面向广告算法工程师的作战型知识体系，覆盖Query理解/改写、召回、CTR/CVR、Query优选排序公式、实验监控、Bad Case归因、论文方法地图与成长Roadmap。",
+      "tags": ["ad", "query-rewrite", "ctr", "cvr", "ranking", "experiment", "monitoring", "roadmap"]
     }
   ],
   "edges": [
